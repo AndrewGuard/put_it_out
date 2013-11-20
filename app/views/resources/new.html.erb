@@ -13,3 +13,8 @@
 <% end %>
 </div>
 
+<div>
+	<% if flash[:error] %>
+		<%render "index"%>
+	<%end%>
+</div>
