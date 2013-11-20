@@ -7,12 +7,13 @@ class PostsController < ApplicationController
 
   def new
     #form for creating a new post
+    @post = Post.new
 
   end
 
   def create
     #create a new post
-    @new_post = Post.create(params[:post])
+    @post = Post.create(params[:post])
 
   end
 
