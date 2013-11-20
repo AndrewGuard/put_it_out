@@ -21,6 +21,14 @@ class ResourcesController < ApplicationController
 	end
 
 	def create
+	@resource = Resource.new(params[:resource])
+		if @resource
+			@resource.save
+			redirect_to resources_path
+		else
+			flash[:errors] = @resources.errors.full_messages
+			redirect_to new_resources_path
+		end	
 	end
 
 end
