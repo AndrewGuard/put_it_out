@@ -19,13 +19,11 @@
 	<%= user.submit "Create Account" %>
 <% end %>
 
-
-<%=flash[:error] %><br>
-<% if @errors %>
-<ol>
-<% @errors.each do |error| %>
-<li> <%=error %> </li>
-</ol>
+<% if flash[:error] %>
+<% flash[:error].each do |error| %><br>
+<ul>
+<li style="color:red"><%= error %> </li>
+</ul>
 <% end %>
 <% end %>
 </div>
