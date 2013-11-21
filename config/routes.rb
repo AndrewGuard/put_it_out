@@ -6,10 +6,10 @@ PutItOut::Application.routes.draw do
   end
   resources :resources
 
-  # get 'login' => 'sessions#new', :as => "new_session"
+  get 'login' => 'sessions#new', :as => "new_session"
   post 'login' => 'sessions#create', :as => "login_sessions"
   get 'logout' => 'sessions#destroy', :as => "logout_sessions"
-  
+
   root :to=> "posts#index"
   #new create 
   # The priority is based upon order of creation:
