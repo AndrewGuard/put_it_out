@@ -1,3 +1,4 @@
+require 'debugger'
 class UsersController < ApplicationController 
 
 	def new
@@ -6,7 +7,16 @@ class UsersController < ApplicationController
 
 	def create
 		user = User.create(params[:user])
-		session[:id] = user.id
-		redirect_to 'http://localhost:3000/users/new'
+	
+		if user.id
+		  session[:id] = user.id
+		  redirect_to posts_url(@posts)
+		else
+		  @errors = user.errors.full_messages
+		  flash[:error] = "Account not created and here is why!"
+		  @user = User.new
+	  	  render :new 
+		end
+		
 	end
 end

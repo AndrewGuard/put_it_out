@@ -16,6 +16,16 @@
 	<%= user.label :password %> <br>
 	<%= user.password_field :password  %>
 </div>
-<%= user.submit %>
+	<%= user.submit "Create Account" %>
+<% end %>
+
+
+<%=flash[:error] %><br>
+<% if @errors %>
+<ol>
+<% @errors.each do |error| %>
+<li> <%=error %> </li>
+</ol>
+<% end %>
 <% end %>
 </div>
