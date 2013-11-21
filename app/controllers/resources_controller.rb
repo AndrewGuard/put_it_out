@@ -1,4 +1,5 @@
-class ResourcesController < ApplicationController 
+exit
+class ResourcesController < ApplicationController
 
 	def index
 		@resources = Resource.all
@@ -29,7 +30,7 @@ class ResourcesController < ApplicationController
 		else
 			flash[:errors] = @resource.errors.full_messages
 			redirect_to new_resource_path
-		end	
+		end
 	end
 
 end
