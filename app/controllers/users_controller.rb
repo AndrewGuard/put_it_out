@@ -1,4 +1,3 @@
-require 'debugger'
 class UsersController < ApplicationController 
 
 	def new
@@ -7,7 +6,6 @@ class UsersController < ApplicationController
 
 	def create
 		user = User.create(params[:user])
-	
 		if user.id
 		  session[:id] = user.id
 		  redirect_to posts_url(@posts)

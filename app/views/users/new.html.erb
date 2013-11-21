@@ -35,9 +35,9 @@
 </div>
 
 <% if flash[:error] %>
-<% flash[:error].each do |error| %><br>
 <ul>
+<% flash[:error].each do |error| %><br>
 <li style="color:red"><%= error %> </li>
-</ul>
 <% end %>
+</ul>
 <% end %>
