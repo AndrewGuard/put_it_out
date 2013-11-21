@@ -2,6 +2,7 @@
   <ul>
     <!-- Home link is available on each page -->
     <li><%= link_to "Put It Out", root_path %></li>
+    <li><%= link_to "Resources", resources_path %></li>
 
     <!-- If user is signed in-->
     <% if current_user %>
@@ -9,7 +10,6 @@
       <%= link_to "Create a new post", new_post_path %>
     <% else %>
     <!-- If user isn't signed in -->
-      <%= link_to "Sign Up", new_user_path %>
-      <%= link_to "Login", new_user_path %>
+      <%= link_to "Sign Up or Login", new_user_path %>
     <% end %>
 </div>
