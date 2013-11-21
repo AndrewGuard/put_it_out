@@ -13,10 +13,12 @@ class PostsController < ApplicationController
   def create
     #create a new post
     user = User.find(session[:id])
-    user << Post.create(params[:post])
-    if @post.valid?
+    post = Post.create(params[:post])
+    user.posts << post
+    if post.valid?
       redirect_to posts_path
     else
+      flash[:error] = "Enter a title and body"
       render :new
     end
 
