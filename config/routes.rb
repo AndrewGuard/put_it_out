@@ -1,13 +1,22 @@
 PutItOut::Application.routes.draw do
 
-  resources :users
+  #resources :users
+  get '/users' => 'users#index', :as => "users_account"
+  get '/users/new' => 'users#new', :as => "new_user"
+  post '/users' => 'users#create', :as => "create_user"
+  get '/users/:id' => 'users#show', :as => 'show_user'
+  get '/users/:id/edit' => 'users#edit', :as => 'edit_user'
+  put '/users/:id' => 'users#update', :as => 'update_user'
+  delete '/users/:id' => 'users#destroy', :as => "delete_user"
+
   resources :posts, :except=> [:edit, :update, :destroy] do
     resources :comments, :only => [:new, :create, :edit]
   end
   resources :resources
-  get 'login' => 'sessions#new'
-  post 'login' => 'sessions#create'
-  get 'logout' => 'sessions#destroy'
+
+  get 'login' => 'sessions#new', :as => "new_session"
+  post 'login' => 'sessions#create', :as => "login_sessions"
+  get 'logout' => 'sessions#destroy', :as => "logout_sessions"
 
   root :to=> "posts#index"
   #new create 
