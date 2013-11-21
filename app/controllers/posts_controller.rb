@@ -21,8 +21,5 @@ class PostsController < ApplicationController
     #show a specific post
     #/
     @post = Post.find_by_id(params[:id])
-
   end
-
-
 end
