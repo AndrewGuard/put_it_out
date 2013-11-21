@@ -3,21 +3,11 @@ require 'spec_helper'
 	describe Resource do
 	let (:resource) {Resource.new}
 
-	context "when title is empty" do
-		it "should not be valid" do
-			expect(user.valid?).to be_false
-		end
-
-		it "should not save" do
-			expect(resource.save).to be_false
-		end
-	end
-
-	context "when url is invalid" do
-		let (:resource) {Resource.new(:link => hte.get)}
-
-			it "should not save" do
-				expect(resource.save).to be_false
-			end
-	end
+	it { should ensure_length_of(:title).is_at_least(5) }
+	it { should validate_presence_of(:title) }
+	it { should validate_presence_of(:link) }
+	it { should validate_presence_of(:description) }
+	it { should ensure_length_of(:description).is_at_least(10) }
+	it { should_not allow_value("get.get").for(:link) }
+	it { should allow_value("http://google.com").for(:link) }
 end
