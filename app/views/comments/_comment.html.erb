@@ -1,0 +1,6 @@
+<ul class="comment_header">
+  <li><a href="/users/<%= comment.user_id %>" class='comment_owner'><%= User.find(comment.user_id).name %></a></li>
+  <li> on: <a href="/post/<%=comment.post_id%>" class='post_title'><%=Post.find(comment.post_id).title %></a></li>
+  <li class='comment'><i data-comment-id='<%= comment.id %>' class="comment_body"></i><%= comment.body %></li>
+</ul>
+
