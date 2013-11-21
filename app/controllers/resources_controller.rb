@@ -2,7 +2,7 @@ class ResourcesController < ApplicationController
 
 	def index
 		@resources = Resource.all
-		@user=@User.find(1)
+		@user=User.find(1)
 	end
 
 	def new

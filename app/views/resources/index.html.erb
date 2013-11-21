@@ -7,11 +7,14 @@
 		<li>
 		<%= resource.title %> | <a href="<%=resource.link%>"><%=resource.link%></a><br>
 		<p><%= resource.description %></p>
-		<% if @user.id == 1 %>
-			<%= link_to "Delete this Post", :method => delete, resources_path(resources) %>
-		</li>
+				<% if @user.id == 1 %>
+				 <%= form_for(resource, :method => "delete", :confirm => "fo realz?") do |f| %>
+    			<%= f.submit "Delete Post"%>
+    			<% end %>
+			</li>
+			<% end %>
+		 <% end %>
 	<% end %>
-	 <% end %>
 </ol>
 </div>
 
