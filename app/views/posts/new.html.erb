@@ -1,41 +1,24 @@
-Form for creating posts
+<!-- Form for creating posts -->
+<h1> Create a post hommie! </h1>
 
-<div class="contianer">
-  <%= form_for(@post)  do |new_post| %>
-   <%= new_post.text_field :title, :placeholder => "Great Apes" %><br>
-    <%= new_post.text_field :body, :placeholder => "Body" %><br>
-    <%= new_post.submit %>
+<% if @post.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved: </h2>
+
+        <ul>
+          <% @post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
 <% end %>
 
+      <div class="container">
+        <%= form_for(@post)  do |new_post| %>
+         <%= new_post.text_field :title, :placeholder => "Great Apes" %><br>
+          <%= new_post.text_area(:body, cols:20, rows: 20, :placeholder => "Body") %><br>
+          <%= new_post.submit %>
+      <% end %>
 
+    </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
