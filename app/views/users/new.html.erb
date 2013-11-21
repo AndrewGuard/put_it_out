@@ -1,4 +1,4 @@
-<%= form_for(@user) do |user| %>
+<div class="container"><%= form_for(@user) do |user| %>
 <div> Create Account </div>
 <div>
 	<%= user.label :name %> <br>
@@ -18,6 +18,21 @@
 </div>
 	<%= user.submit "Create Account" %>
 <% end %>
+</div> <br>
+
+<!-- <div class="container">
+<%#=form_tag sessions_path do %>
+<div>
+	<%= label_tag :email %> <br>
+	<%= text_field_tag :email %>
+</div>
+<div>
+	<%= label_tag :password %> <br>
+	<%= password_field_tag :password  %> <br>
+	<%= submit_tag "Login" %>
+</div>
+<%# end %>
+</div> -->
 
 <% if flash[:error] %>
 <% flash[:error].each do |error| %><br>
@@ -26,4 +41,3 @@
 </ul>
 <% end %>
 <% end %>
-</div>

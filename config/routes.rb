@@ -5,7 +5,9 @@ PutItOut::Application.routes.draw do
     resources :comments, :only => [:new, :create, :edit]
   end
   resources :resources
-  resources :sessions, :only => [:new, :create, :destroy]
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  get 'logout' => 'sessions#destroy'
 
   root :to=> "posts#index"
   #new create 
