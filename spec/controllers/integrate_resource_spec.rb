@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature "User creates resource" do
+feature "User creates resource and destroys" do
 	fixtures :all
 	
 	scenario "for one resource" do
@@ -14,5 +14,10 @@ feature "User creates resource" do
 		within("#resources") do
 			expect(page).to have_text("This is a test article")
 		end
-	end
+		click_button "Delete Post"
+		
+		within("#delete") do
+			expect(page).to have_text("Message Deleted")
+		end
+	end	
 end
