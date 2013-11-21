@@ -20,6 +20,13 @@ class ResourcesController < ApplicationController
 	end
 
 	def update
+		resource=Resource.find(params[:id])
+		resource.update_attributes(params[:resource])
+		redirect_to resources_path
+	end
+
+	def edit
+		@resource= Resource.find(params[:id])
 	end
 
 	def create
