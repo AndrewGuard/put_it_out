@@ -1,4 +1,3 @@
-require 'debugger'
 class UsersController < ApplicationController 
 
 	def new
@@ -7,13 +6,11 @@ class UsersController < ApplicationController
 
 	def create
 		user = User.create(params[:user])
-	
 		if user.id
 		  session[:id] = user.id
 		  redirect_to posts_url(@posts)
 		else
-		  @errors = user.errors.full_messages
-		  flash[:error] = "Account not created and here is why!"
+		  flash[:error] = user.errors.full_messages
 		  @user = User.new
 	  	  render :new 
 		end
