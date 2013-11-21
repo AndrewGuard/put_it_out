@@ -1,5 +1,9 @@
 class UsersController < ApplicationController 
 
+	def index
+		@user = User.find(session[:id])
+	end
+
 	def new
 		@user = User.new
 	end
@@ -8,7 +12,7 @@ class UsersController < ApplicationController
 		user = User.create(params[:user])
 		if user.id
 		  session[:id] = user.id
-		  redirect_to posts_url(@posts)
+		  redirect_to users_url(@posts)
 		else
 		  flash[:error] = user.errors.full_messages
 		  @user = User.new
