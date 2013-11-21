@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 	validates :name, length: { in: 2..20, message: "- must be between 2 and 20 characters" }
 	validates_presence_of :email
 	validates_uniqueness_of :email
-	validates :email, format: {with: /[a-zA-Z]+@.{2,}\.[a-zA-Z]{2,6}/, message: "- must be a valid format"}
+	validates :email, format: {with: /[a-zA-Z0-9]+@.{2,}\.[a-zA-Z]{2,6}/, message: "- must be a valid format"}
 	validates_presence_of :username
 	validates_uniqueness_of :username
 	validates :username, length: { in: 6..20, message: "- must be between 6 and 20 characters" }
