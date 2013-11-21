@@ -1,5 +1,10 @@
-<div>
+<div id="resources">
 <h1> Current Resources </h1>
+<span id="delete">
+<% if flash[:notice] %>
+<%= flash[:notice] %>
+<% end %>
+</span>
 
 <ol>
 	<% if @resources != nil %>

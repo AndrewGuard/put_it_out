@@ -1,0 +1,6 @@
+admin:
+  id: 1
+  name: Alex
+  email: alex@alex.com
+  username: alexander
+  password_digest: $2a$10$9IeJgRTf/JUF0zX6YxBbw.4nG6ckKwwRkPns4o7LhdQGWqu2Ho/ka
