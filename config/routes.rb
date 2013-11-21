@@ -5,10 +5,11 @@ PutItOut::Application.routes.draw do
     resources :comments, :only => [:new, :create, :edit]
   end
   resources :resources
-  get 'login' => 'sessions#new'
-  post 'login' => 'sessions#create'
-  get 'logout' => 'sessions#destroy'
 
+  get 'login' => 'sessions#new', :as => "new_session"
+  post 'login' => 'sessions#create', :as => "login_sessions"
+  get 'logout' => 'sessions#destroy', :as => "logout_sessions"
+  
   root :to=> "posts#index"
   #new create 
   # The priority is based upon order of creation:

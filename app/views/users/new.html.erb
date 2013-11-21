@@ -20,19 +20,19 @@
 <% end %>
 </div> <br>
 
-<!-- <div class="container">
-<%#=form_tag sessions_path do %>
+<div class="container">
+<%=form_tag login_sessions_path do %>
 <div>
-	<%= label_tag :email %> <br>
-	<%= text_field_tag :email %>
+        <%= label_tag :email %> <br>
+        <%= text_field_tag :email %>
 </div>
 <div>
-	<%= label_tag :password %> <br>
-	<%= password_field_tag :password  %> <br>
-	<%= submit_tag "Login" %>
+        <%= label_tag :password %> <br>
+        <%= password_field_tag :password  %> <br>
+        <%= submit_tag "Login" %>
 </div>
-<%# end %>
-</div> -->
+<% end %>
+</div>
 
 <% if flash[:error] %>
 <% flash[:error].each do |error| %><br>
