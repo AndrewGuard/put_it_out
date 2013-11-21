@@ -1,6 +1,18 @@
 <!-- Form for creating posts -->
 <h1> Create a post hommie! </h1>
 
+<% if @post.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved: </h2>
+
+        <ul>
+          <% @post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+<% end %>
+
       <div class="container">
         <%= form_for(@post)  do |new_post| %>
          <%= new_post.text_field :title, :placeholder => "Great Apes" %><br>
