@@ -1,0 +1,14 @@
+<div class="navbar">
+  <ul>
+    <li><%= link_to "Home", :root %></li>
+
+    <!-- If user is signed in-->
+    <% if User.find_by_id(session[:id]) %>
+      <a href="/login">Logout</a>
+      <a href="/posts/new"> Create a new post </a>
+    <% else %>
+    <!-- If user isn't signed in -->
+      <%= link_to "Sign Up!", :new_user, {:class => "sign_up"} %>
+      <a href="/login">Login</a>
+    <% end %>
+</div>
