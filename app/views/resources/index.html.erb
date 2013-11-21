@@ -1,0 +1,17 @@
+<div>
+<h1> Current Resources </h1>
+
+<ol>
+	<% if @resources != nil %>
+		<% @resources.each do |resource| %>
+		<li>
+		<%= resource.title %> | <%=resource.url%>
+		</li>
+	<% end %>
+	 <% end %>
+</ol>
+</div>
+
+<div>
+	<%= link_to "Add Resource", new_resource_path %>
+</div>
