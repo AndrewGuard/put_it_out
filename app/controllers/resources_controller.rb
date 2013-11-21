@@ -1,10 +1,8 @@
 class ResourcesController < ApplicationController 
 
-	def new
-	end
-
 	def index
 		@resources = Resource.all
+		@user=User.find(1)
 	end
 
 	def new
@@ -15,6 +13,10 @@ class ResourcesController < ApplicationController
 	end
 
 	def destroy
+		resources = Resource.find(params[:id])
+		resources.destroy
+		flash[:notice] = "Message Deleted"
+		redirect_to resources_path
 	end
 
 	def update
@@ -25,8 +27,8 @@ class ResourcesController < ApplicationController
 		if @resource.save
 			redirect_to resources_path
 		else
-			flash[:errors] = @resources.errors.full_messages
-			redirect_to new_resources_path
+			flash[:errors] = @resource.errors.full_messages
+			redirect_to new_resource_path
 		end	
 	end
 

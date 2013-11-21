@@ -7,11 +7,11 @@ describe PostsController do
 
   describe "when a post has a title and a body " do
 
-    it "should display title " do
+    it "should display title" do
      post.title.should eq "My Swanky Blog Post"
     end
 
-    it "should display body " do
+    it "should display body" do
       post.body.should eq "Something some windbag said"
     end
   end
