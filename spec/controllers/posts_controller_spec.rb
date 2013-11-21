@@ -5,9 +5,8 @@ describe PostsController do
 
   describe "GET index" do
     it "assigns @posts to all posts" do
-      posts = Post.all
       get :index
-      posts.should have(Post.all.length).entries
+      expect(assigns(:posts).length).to eq Post.all.length
     end
 
     it "renders the index template" do
@@ -29,6 +28,7 @@ describe PostsController do
   end
 
   describe "POST create" do
+
     it "creates a new Post" do
       expect {
         post :create, :post => { :title => "Titles", :body => "Bodies"}

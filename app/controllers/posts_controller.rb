@@ -12,7 +12,8 @@ class PostsController < ApplicationController
 
   def create
     #create a new post
-    @post = Post.create(params[:post], user_id: session[:id])
+    user = User.find(session[:id])
+    user << Post.create(params[:post])
     if @post.valid?
       redirect_to posts_path
     else
