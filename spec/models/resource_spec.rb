@@ -10,4 +10,11 @@ require 'spec_helper'
 	it { should ensure_length_of(:description).is_at_least(10) }
 	it { should_not allow_value("get.get").for(:link) }
 	it { should allow_value("http://google.com").for(:link) }
+
+context '.attr_accessible' do
+	let(:resource) {Resource.new}
+	subject {:link}
+	it {should_not be_accessible :bar}
+	it {should be_accessible :link}
+end
 end
