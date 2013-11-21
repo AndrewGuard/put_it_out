@@ -31,7 +31,7 @@ describe PostsController do
   describe "POST create" do
     it "creates a new Post" do
       expect {
-        post :create, :post => { :title => "Titles", :body => "Bodies" }
+        post :create, :post => { :title => "Titles", :body => "Bodies"}
       }.to change(Post, :count).by(1)
     end
 
