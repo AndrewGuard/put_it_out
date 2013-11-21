@@ -12,12 +12,11 @@ class UsersController < ApplicationController
 		user = User.create(params[:user])
 		if user.id
 		  session[:id] = user.id
-		  redirect_to users_url(@posts)
+		  redirect_to users_path
 		else
 		  flash[:error] = user.errors.full_messages
 		  @user = User.new
 	  	  render :new 
 		end
-		
 	end
 end

@@ -24,12 +24,12 @@
 <%=form_tag login_sessions_path do %>
 <div>
         <%= label_tag :email %> <br>
-        <%= text_field_tag :email %>
+        <%= text_field_tag :email, nil, id: "login_email" %><br>
 </div>
 <div>
         <%= label_tag :password %> <br>
-        <%= password_field_tag :password  %> <br>
-        <%= submit_tag "Login" %>
+        <%= password_field_tag :password,  nil, id: "login_password" %><br>
+        <%= submit_tag  nil, id: "login_user" %>
 </div>
 <% end %>
 </div>
