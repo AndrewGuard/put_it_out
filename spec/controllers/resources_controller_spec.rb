@@ -17,9 +17,9 @@ describe ResourcesController do
 			expect {
 				delete :destroy, :id => @resource}.to change(Resource, :count).by(-1)
 		end
-
 	end
 
+	
 
 
 end
