@@ -1,3 +1,5 @@
 Put It Out - Quit Smoking App
 
 Alex, Elaine, Jake, Andrew, Ty
+
+We are live on the internet! Check us out at http://murmuring-gorge-4904.herokuapp.com/
