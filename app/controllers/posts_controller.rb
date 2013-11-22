@@ -48,7 +48,11 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    @post.destroy
+    if @post.user_id == current_user.id
+      @post.destroy
+    else
+      flash[:error] = "You can only delete your posts"
+    end
 
     respond_to do |format|
       format.html { redirect_to posts_url }
