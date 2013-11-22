@@ -9,5 +9,8 @@
 		<% end %>
 	</ul>
 
+  <%#= link_to "Edit", :user, :method => :edit, :remote => true%>
+  <li><%= link_to "Edit", edit_user_path(session[:id]) %></li>
+
 </div>
 
