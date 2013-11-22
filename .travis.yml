@@ -1,5 +1,10 @@
 language: ruby
 rvm:
   - "1.9.3"
-# uncomment this line if your project needs to run something other than `rake`:
-# script: bundle exec rspec spec
+# before_script:
+#   - cp config/database.yml
+#   - psql -c 'create database put_it_out_test;' -U postgres
+#   - bundle exec rake db:migrate 
+#   - bundle exec rake db:test:prepare 
+script:
+  - bundle exec rake db:drop db:create db:migrate spec
