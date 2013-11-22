@@ -1,7 +1,0 @@
- <div class="container">
-        <%= form_for :comments, :url => {:action => :create} do |comment| %>
-          <%= comment.text_area(:text, cols:20, rows: 20, :placeholder => "Body") %><br>
-          <%= comment.submit %>
-  <% end %>
-</div>
-

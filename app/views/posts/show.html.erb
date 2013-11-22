@@ -1,9 +1,13 @@
 
 <div class="container">
 
-  <h2>Showing one post! </h2>
+  <h2><%= @post.title %> </h2>
+   <p><%= @post.body %></p>
+   Post by <%= @post.user.name %>
 
-   <%= @post.title %><br>
-   <%= @post.body %>
+	<h3>Comments</h3>
+	<%= render @post.comments %>
+
+	<h3>Add a comment:</h3>
+	<%= render "comments/form" %>
 </div>
-

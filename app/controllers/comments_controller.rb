@@ -4,11 +4,9 @@ class CommentsController < ApplicationController
   end
 
   def create
-
-
     @post = Post.find(params[:post_id])
-    @comment = Comment.create(params[:comments])
-    @post.comments << @comment
+    @user = User.find(session[:id])
+    @comment = @post.comments.create(params[:comments])
 
       if @comment.valid?
         redirect_to :back
