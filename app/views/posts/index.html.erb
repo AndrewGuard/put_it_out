@@ -1,11 +1,14 @@
  <!-- Navbar of Login and Signup -->
-<div class="container">
-  <h2>Showing all posts! </h2>
+ <div class="container">
+ 	<h2>Showing all posts! </h2>
+ 	<% @posts.each do |post| %>
+ 	<table>
 
-   <% @posts.each do |post| %>
-   <a href="/posts/<%= post.id %> "><%= post.title %></a><br>
-   <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-   <% end %>
-</div>
+ 		<td> <a href="/posts/<%= post.id %> "><%= post.title %></a></td><br>
+ 		<td> <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+ 	</table>
+
+ 	<% end %>
+ </div>
 
  <!-- Resources -->
