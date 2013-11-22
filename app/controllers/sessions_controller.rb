@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
 		if request.env['omniauth.auth']
 			user = SocialMediaUser.from_facebook(request.env['omniauth.auth'])
 			session[:id] = user.id
+			#needs to be unique
 			session[:provider] = user.provider	
 			redirect_to users_path
 		else
