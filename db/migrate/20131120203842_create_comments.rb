@@ -4,6 +4,7 @@ class CreateComments < ActiveRecord::Migration
     	t.text :text
     	t.belongs_to :post
     	t.belongs_to :user
+    	t.belongs_to :social_media_user
 
       t.timestamps
     end

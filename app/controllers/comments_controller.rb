@@ -5,10 +5,9 @@ class CommentsController < ApplicationController
 
   def create
 
-
-    @post = Post.find(params[:post_id])
-    @comment = Comment.create(params[:comments])
-    @post.comments << @comment
+    @comment = Comment.create(text: params[:text])
+    @comment.update_attribute(:user_id, session[:id])
+    @comment.update_attribute(:post_id, params[:post_id])
 
       if @comment.valid?
         redirect_to :back
@@ -19,7 +18,6 @@ class CommentsController < ApplicationController
 
     def show
       @comment = Comment.find(params[:id])
-      respond_with @comment
     end
 end
 
