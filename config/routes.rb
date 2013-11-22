@@ -1,6 +1,8 @@
 PutItOut::Application.routes.draw do
 
-  resources :users
+  resources :users do
+    resources :timers, :only => [:create, :edit, :update, :new, :index]
+  end
   resources :posts, :except=> [:edit, :update, :destroy] do
     resources :comments, :only => [:new, :create, :edit]
   end
@@ -9,6 +11,8 @@ PutItOut::Application.routes.draw do
   get 'login' => 'sessions#new', :as => "new_session"
   post 'login' => 'sessions#create', :as => "login_sessions"
   get 'logout' => 'sessions#destroy', :as => "logout_sessions"
+  # get 'timer' =>
+
 
   root :to=> "posts#index"
   #new create 
