@@ -9,8 +9,6 @@ class SocialMediaUser < ActiveRecord::Base
 			user.name = auth.info.name
 			user.email = auth.info.email
 			user.username = auth.extra.raw_info.username
-			user.provider = auth.uid
-			user.uid = auth.uid
 			user.save!
 			return user 
 		end
