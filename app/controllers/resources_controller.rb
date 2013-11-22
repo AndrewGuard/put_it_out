@@ -1,4 +1,3 @@
-exit
 class ResourcesController < ApplicationController
 
 	def index
