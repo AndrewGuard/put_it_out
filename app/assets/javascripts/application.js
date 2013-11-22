@@ -13,3 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(function() {
+   $("a[data-remote]").on "ajax:success", (e, data, status, xhr) -> alert "ajax works."  
+});
