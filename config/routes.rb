@@ -9,6 +9,7 @@ PutItOut::Application.routes.draw do
   get 'login' => 'sessions#new', :as => "new_session"
   post 'login' => 'sessions#create', :as => "login_sessions"
   get 'logout' => 'sessions#destroy', :as => "logout_sessions"
+  
   match '/auth/:provider/callback', :to => 'sessions#create'
 
   root :to=> "posts#index"
