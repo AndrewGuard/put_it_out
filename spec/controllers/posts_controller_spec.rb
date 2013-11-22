@@ -28,6 +28,10 @@ describe PostsController do
   end
 
   describe "POST create" do
+    before(:each) do
+      user = User.new(name: "Jake", username: "Jakey", email: "Jake@jake.com", password: "password")
+      controller.stub :current_user => user
+    end
 
     it "creates a new Post" do
       expect {
