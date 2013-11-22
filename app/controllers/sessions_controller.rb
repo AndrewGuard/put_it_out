@@ -5,7 +5,6 @@ class SessionsController < ApplicationController
 
 	def create
 		if request.env['omniauth.auth']
-			p request.env["omniauth.auth"]
 			user = SocialMediaUser.from_facebook(request.env['omniauth.auth'])
 			session[:id] = user.id
 			session[:provider] = user.provider	
