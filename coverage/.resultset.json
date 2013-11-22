@@ -1,6 +1,8 @@
 {
   "RSpec": {
     "coverage": {
+    },
+    "timestamp": 1385140926
       "/Users/apprentice/Desktop/put_it_out/spec/controllers/posts_controller_spec.rb": [
         1,
         null,

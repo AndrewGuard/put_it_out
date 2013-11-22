@@ -1,5 +1,7 @@
 class ResourcesController < ApplicationController
-  include ApplicationHelper
+
+include ApplicationHelper
+
 
 	def index
 		@resources = Resource.all
