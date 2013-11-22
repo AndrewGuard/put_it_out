@@ -4,6 +4,7 @@
 
    <% @posts.each do |post| %>
    <a href="/posts/<%= post.id %> "><%= post.title %></a><br>
+   <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
    <% end %>
 </div>
 
