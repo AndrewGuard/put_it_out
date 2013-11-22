@@ -1,8 +1,9 @@
 class ResourcesController < ApplicationController
+include ApplicationHelper
 
 	def index
 		@resources = Resource.all
-		@user=User.find(1)
+		@user=current_user
 	end
 
 	def new
