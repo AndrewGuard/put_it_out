@@ -39,6 +39,8 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 
 gem 'debugger'
+gem 'omniauth'
+gem 'omniauth-facebook'
 gem 'coveralls', require: false
 
 group :development, :test do
