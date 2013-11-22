@@ -18,12 +18,12 @@ class User < ActiveRecord::Base
 
 	has_secure_password
 
-	# def self.from_facebook(auth)
-	# 	where(auth.slice(:uid, :provider)).first_or_initialize.tap do |user|
-	# 		user.name = auth.info.name
-	# 		user.email = auth.info.email
-	# 		user.save!
-	# 		return user 
-	# 	end
-	# end
+	def self.from_facebook(auth)
+		where(auth.slice(:uid, :provider)).first_or_initialize.tap do |user|
+			user.name = auth.info.name
+			user.email = auth.info.email
+			user.save!
+			return user 
+		end
+	end
 end
