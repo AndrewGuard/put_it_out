@@ -1,8 +1,8 @@
 PutItOut::Application.routes.draw do
 
   resources :users
-  resources :posts, :except=> [:edit, :update, :destroy] do
-    resources :comments, :only => [:new, :create, :edit]
+  resources :posts do
+    resources :comments, :only => [:new, :create]
   end
   resources :resources
 

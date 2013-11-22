@@ -3,7 +3,7 @@
 
   <li class='comment'><i data-comment-id='<%= comment.id %>' class="comment_body"></i><%= comment.text %></li>
 
-  <li> <%= link_to 'Comment User', user_path(Comment.find(comment.id).user_id) %> </li>
+  <li> <%= link_to 'Commentary + Dissent => Dissentary', user_path(Comment.find(comment.id).user_id) %> </li>
   
 </ul>
 
