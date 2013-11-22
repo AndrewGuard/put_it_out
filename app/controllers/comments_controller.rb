@@ -4,9 +4,13 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment= Comment.(params[:comment])
 
-      if @comment
+
+    @post = Post.find(params[:post_id])
+    @comment = Comment.create(params[:comments])
+    @post.comments << @comment
+
+      if @comment.valid?
         redirect_to :back
       else
         flash[:error] = "Your comment is uncool"
