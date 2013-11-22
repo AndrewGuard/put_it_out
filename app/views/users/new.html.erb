@@ -18,6 +18,7 @@
 </div>
 	<%= user.submit "Create Account" %>
 <% end %>
+<%= button_to "Create An Account With Facebook", '/auth/facebook', :class => 'fbook_button'%>
 </div>
 
 <div class="container">
@@ -33,6 +34,7 @@
         <%= submit_tag  nil, id: "login_user" %>
 </div>
 <% end %>
+<%= button_to "Login With Facebook", '/auth/facebook', :class => 'fbook_button' %>
 </div>
 
 
