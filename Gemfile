@@ -37,6 +37,12 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # Deploy with Capistrano
 # gem 'capistrano'
 
+
+gem 'debugger'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'coveralls', require: false
+
 group :development, :test do
 	gem 'rspec-rails', "~>2.0"
 	gem 'rack_session_access'

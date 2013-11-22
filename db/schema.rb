@@ -11,22 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131120203904) do
+ActiveRecord::Schema.define(:version => 20131122165509) do
 
   create_table "comments", :force => true do |t|
     t.text     "text"
     t.integer  "post_id"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "social_media_user_id"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "body"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "social_media_user_id"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   create_table "resources", :force => true do |t|
@@ -35,6 +37,16 @@ ActiveRecord::Schema.define(:version => 20131120203904) do
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "social_media_users", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "provider"
+    t.string   "username"
+    t.integer  "uid"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
