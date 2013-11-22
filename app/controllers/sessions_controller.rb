@@ -5,9 +5,11 @@ class SessionsController < ApplicationController
 
 	def create
 		if request.env['omniauth.auth']
-			user = User.from_facebook(request.env['omniauth.auth'])	
-			#need to go somewhere here
-			#this is a good place for the respond_to stuff from lecture today
+			p request.env["omniauth.auth"]
+			user = SocialMediaUser.from_facebook(request.env['omniauth.auth'])
+			session[:id] = user.id
+			session[:provider] = user.provider	
+			redirect_to users_path
 		else
 			user = User.find_by_email(params[:email])
 			if user
@@ -28,6 +30,7 @@ class SessionsController < ApplicationController
 
 	def destroy
 		session[:id]= nil
+		session[:provider] = nil
 		redirect_to root_url, :notice => "Logged out!"
 	end
 
