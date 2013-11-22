@@ -37,14 +37,12 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # Deploy with Capistrano
 # gem 'capistrano'
 
-
-gem 'debugger'
-gem 'coveralls', require: false
-
 group :development, :test do
 	gem 'rspec-rails', "~>2.0"
 	gem 'rack_session_access'
 	gem 'nyan-cat-formatter'
+	gem 'debugger'
+	gem 'coveralls', require: false
 end
 group :test do
 	gem 'capybara'
