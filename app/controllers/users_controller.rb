@@ -5,6 +5,14 @@ class UsersController < ApplicationController
 			@user = SocialMediaUser.find(session[:id])
 		else
 			@user = User.find(session[:id])
+				# respond_to do |format|
+	   #    format.js do
+	   #      render nothing: true
+	   #    end
+	   #    format.any do
+	   #      redirect_to posts_path
+	   #    end
+	     # end
 		end
 	end
 
@@ -30,7 +38,9 @@ class UsersController < ApplicationController
 
 	def edit
 			@user = User.find(session[:id])
-			# @user_id = User.find(:id)
+			if request.xhr?
+				render :edit, layout: false
+			end
 	end
 
 	def update
