@@ -1,8 +1,14 @@
 <div>
 <ul class="comment_header">
-  <li><a href="/users/<%= comment.user_id %>" class='_username_comment'><%= User.find(comment.user_id).name %></a></li>
-  <li> on: <a href="/post/<%=comment.post_id%>" class='post_title'><%=Post.find(comment.post_id).title %></a></li>
+
   <li class='comment'><i data-comment-id='<%= comment.id %>' class="comment_body"></i><%= comment.text %></li>
+
+  <li> <%= link_to 'Comment User', user_path(Comment.find(comment.id).user_id) %> </li>
+  
 </ul>
 
 </div>
+
+
+
+<!-- <li> Comment by: <a href="/users/<%#= Comment.find(comment.id).user_id %>" class='_username_comment'> <%#= User.find(comment.user_id).name %></a></li> -->

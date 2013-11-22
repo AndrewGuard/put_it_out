@@ -1,0 +1,11 @@
+<div class="container">
+
+	<h1> Hi <%= " #{@user.username.capitalize}" %>! Welcome to your profile page. </h1>
+
+	<ul>
+		<% @user.posts.each do |post| %>
+			<li><%= link_to post.title, post_path(post) %><li>
+		<% end %>
+	</ul>
+
+</div>
