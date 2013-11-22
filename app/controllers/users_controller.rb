@@ -8,6 +8,10 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def show
+		@user = User.find(session[:id])
+  end
+
 	def new
 		@user = User.new
 	end
@@ -22,5 +26,20 @@ class UsersController < ApplicationController
 		  @user = User.new
 	  	  render :new 
 		end
+	end
+
+	def edit
+			@user = User.find(session[:id])
+			# @user_id = User.find(:id)
+	end
+
+	def update
+		 @user = User.find(session[:id])
+		 if @user.update_attributes(params[:user])
+      flash[:success] = "Your info has been updated!"
+      redirect_to user_path(@user)
+    else
+      render :edit
+    end
 	end
 end
