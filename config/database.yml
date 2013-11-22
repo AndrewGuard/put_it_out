@@ -42,6 +42,7 @@ test:
   encoding: unicode
   database: put_it_out_test
   pool: 5
+  username: postgres
 
 
 production:
