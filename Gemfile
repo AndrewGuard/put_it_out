@@ -39,6 +39,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 
 gem 'debugger'
+gem 'coveralls', require: false
 
 group :development, :test do
 	gem 'rspec-rails', "~>2.0"
