@@ -1,0 +1,16 @@
+<div>
+
+	<h1> How long has it been? </h1>
+		<div id="count_up_timer"></div>
+
+		<% if current_user.timer == nil %>
+			<%= form_for(@user) do |f| %>
+			<%= f.submit "I'm done with smoking!" %>
+			<% end %>
+		<% end %>
+
+
+
+
+
+</div>

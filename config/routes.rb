@@ -1,16 +1,22 @@
 PutItOut::Application.routes.draw do
 
   resources :users
-  resources :posts, :except=> [:edit, :update, :destroy] do
-    resources :comments, :only => [:new, :create, :edit]
+  resources :posts do
+    resources :comments, :only => [:new, :create]
   end
+  resources :users do
+    resources :timers, :only => [:create, :edit, :update, :new, :index]
+  end
+
   resources :resources
 
   get 'login' => 'sessions#new', :as => "new_session"
   post 'login' => 'sessions#create', :as => "login_sessions"
   get 'logout' => 'sessions#destroy', :as => "logout_sessions"
+
   
   match '/auth/:provider/callback', :to => 'sessions#create'
+
 
   root :to=> "posts#index"
   #new create 
