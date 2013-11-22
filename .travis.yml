@@ -1,5 +1,7 @@
 language: ruby
 rvm:
   - "1.9.3"
+before_script:
+  - psql -c 'create database put_it_out_test;'
 # uncomment this line if your project needs to run something other than `rake`:
 # script: bundle exec rspec spec
