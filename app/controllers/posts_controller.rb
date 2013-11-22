@@ -1,4 +1,6 @@
+
 class PostsController < ApplicationController
+  include ApplicationHelper
 
   def index
     # show all posts
@@ -12,9 +14,8 @@ class PostsController < ApplicationController
 
   def create
     #create a new post
-    user = User.find(session[:id])
     @post = Post.create(params[:post])
-    user.posts << @post
+    current_user.posts << @post
     if @post.valid?
       redirect_to posts_path
     else

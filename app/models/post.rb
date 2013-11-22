@@ -5,5 +5,6 @@ class Post < ActiveRecord::Base
    validates :title, length: { in: 4..300}
    validates :body, length: { minimum: 4}
    belongs_to :user
+   belongs_to :social_media_user
    has_many :comments
 end
