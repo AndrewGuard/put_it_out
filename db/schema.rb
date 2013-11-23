@@ -61,11 +61,11 @@ ActiveRecord::Schema.define(:version => 20131123013928) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "username"
+    t.string   "photo"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.integer  "timer_id"
     t.boolean  "admin",           :default => false
-    t.string   "photo"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
   end
 
 end
