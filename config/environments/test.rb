@@ -36,5 +36,6 @@ PutItOut::Application.configure do
   config.active_support.deprecation = :stderr
 
   OmniAuth.config.test_mode = true
+  config.middleware.use RackSessionAccess::Middleware
 
 end

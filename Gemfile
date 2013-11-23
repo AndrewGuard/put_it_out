@@ -53,5 +53,6 @@ end
 group :test do
 	gem 'capybara'
 	gem 'shoulda-matchers'
+  gem 'rack_session_access'
 	gem "factory_girl_rails", "~> 4.0"
 end
