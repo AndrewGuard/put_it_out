@@ -1,8 +1,11 @@
 require 'spec_helper'
 
 feature "User managing resources" do
-	fixtures :all
 	
+	before do
+	@user= FactoryGirl.create(:user)
+	end
+
 	scenario "when creating resources" do
 		visit "/resources"
 		click_link "Add Resource"

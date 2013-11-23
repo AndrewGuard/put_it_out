@@ -1,13 +1,23 @@
 <div class="container">
 
 
-	<h1> Hi<%= " #{@user.username.capitalize}" %>! Welcome to your profile page. </h1>
+	<h1> Hi<%= " #{@user.name.capitalize}" %>! Welcome to your profile page. </h1>
 
 	<ul>
 		<% @user.posts.each do |post| %>
 			<li><%= link_to post.title, post_path(post) %><li>
 		<% end %>
 	</ul>
+
+  <h3 id="profile_info">Your profile information </h3>
+      <label id="profile_info"> Name </label><%= @user.name  %><br>
+      <label id="profile_info"> Email </label><%= @user.email  %><br>
+      <label id="profile_info"> Username </label><%= @user.username  %><br><br>
+     
+
+  <%#= link_to "Edit", :user, :method => :edit, :remote => true%>
+  <div class="edit_button"><%= link_to "Edit", edit_user_path(session[:id]),:remote => true %></div>
+ 
 
 </div>
 

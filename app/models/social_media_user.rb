@@ -1,5 +1,6 @@
 class SocialMediaUser < ActiveRecord::Base
-  attr_accessible :email, :name, :provider, :username
+  attr_accessible :email, :name, :provider, :username, :photo
+  mount_uploader :photo, PhotoUploader
 
   has_many :posts
   has_many :comments
@@ -9,8 +10,7 @@ class SocialMediaUser < ActiveRecord::Base
 			user.name = auth.info.name
 			user.email = auth.info.email
 			user.username = auth.extra.raw_info.username
-			user.provider = auth.uid
-			user.uid = auth.uid
+			user.remote_photo_url = auth.info.image
 			user.save!
 			return user 
 		end

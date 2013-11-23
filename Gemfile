@@ -36,7 +36,8 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Deploy with Capistrano
 # gem 'capistrano'
-
+gem 'carrierwave'
+gem "mini_magick"
 
 gem 'debugger'
 gem 'omniauth'
@@ -53,5 +54,6 @@ end
 group :test do
 	gem 'capybara'
 	gem 'shoulda-matchers'
+  gem 'rack_session_access'
 	gem "factory_girl_rails", "~> 4.0"
 end
