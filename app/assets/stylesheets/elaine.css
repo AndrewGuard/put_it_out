@@ -7,6 +7,9 @@
 
 }
 
+h1 {
+   font-family: Tahoma;
+}
 
 .navbar ul li  {
   display: inline;
@@ -25,5 +28,24 @@
 }
 
 .navbar a:hover{
+  color: yellow;
+}
+
+ #profile_info {
+  padding-right: 5px;
+  font-family: Tahoma;
+  font-weight:bold;
+}
+.edit_button a {
+  background-color: #00FFFF;
+  color: tomato;
+  text-decoration: none;
+  font-family: Tahoma;
+  font-size:110%;
+  border-radius: 10px;
+  padding: 4px;
+}
+
+.edit_button a:hover{
   color: yellow;
 }
