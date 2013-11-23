@@ -13,3 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(function() {
+  $("a[data-remote=true]").on("ajax:success", function(event, data) {
+    $("a[data-remote=true]").replaceWith(data);
+  });
+});

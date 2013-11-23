@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
 		if request.env['omniauth.auth']
 			user = SocialMediaUser.from_facebook(request.env['omniauth.auth'])
 			session[:id] = user.id
-			#needs to be unique
 			session[:provider] = user.provider	
 			redirect_to users_path
 		else
@@ -15,6 +14,7 @@ class SessionsController < ApplicationController
 			if user
 				if user.authenticate(params[:password])
 					session[:id] = user.id
+					session[:provider] = "regular_user"
 					redirect_to users_path
 				else
 					flash[:error] = ["Invalid email or password"]

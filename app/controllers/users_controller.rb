@@ -5,8 +5,25 @@ class UsersController < ApplicationController
 			@user = SocialMediaUser.find(session[:id])
 		else
 			@user = User.find(session[:id])
+				# respond_to do |format|
+	   #    format.js do
+	   #      render nothing: true
+	   #    end
+	   #    format.any do
+	   #      redirect_to posts_path
+	   #    end
+	     # end
 		end
 	end
+
+	def show
+<<<<<<< HEAD
+		@user = User.find(session[:id])
+  end
+=======
+		@user = User.find(params[:id])
+	end
+>>>>>>> a399ab2509f3b2505fd6f9a7b06af388648c7362
 
 	def new
 		@user = User.new
@@ -23,4 +40,25 @@ class UsersController < ApplicationController
 	  	  render :new 
 		end
 	end
+
+<<<<<<< HEAD
+	def edit
+			@user = User.find(session[:id])
+			if request.xhr?
+				render :edit, layout: false
+			end
+	end
+
+	def update
+		 @user = User.find(session[:id])
+		 if @user.update_attributes(params[:user])
+      flash[:success] = "Your info has been updated!"
+      redirect_to users_path(@user)
+     else
+      render :edit
+     end
+	end
+=======
+
+>>>>>>> a399ab2509f3b2505fd6f9a7b06af388648c7362
 end

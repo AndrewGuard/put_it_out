@@ -4,8 +4,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-
-    @comment = Comment.create(text: params[:text])
+    @comment = Comment.create(text: params[:comment][:text])
     @comment.update_attribute(:user_id, session[:id])
     @comment.update_attribute(:post_id, params[:post_id])
 

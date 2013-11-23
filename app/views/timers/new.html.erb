@@ -9,7 +9,7 @@
 
 		</div>
 
-				<%= if current_user.timer_id == nil? %>
+				<% if current_user.timer_id == nil? %>
 			<%= form_for [@user, @timer] do |f| %>
 				<%= f.submit "I'm done with smoking!" %>
 			<% end %>
