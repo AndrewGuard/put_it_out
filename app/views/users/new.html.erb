@@ -16,7 +16,7 @@
 	<%= user.label :password %> <br>
 	<%= user.password_field :password  %>
 </div>
-	<%= user.submit "Create Account" %>
+	<%= user.submit nil, id: "create_account" %>
 <% end %>
 <%= button_to "Create An Account With Facebook", '/auth/facebook', :class => 'fbook_button', :id => 'fbook_button1' %>
 </div>
