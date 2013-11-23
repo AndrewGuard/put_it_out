@@ -1,7 +1,5 @@
-class UsersController < ApplicationController
-	# FACEBOOK USER TEST INFO
-	#jvvchapman@gmail.com
-	#p@ssword
+class UsersController < ApplicationController 
+	include ApplicationHelper
 
 	def index
 		if session[:provider] == "facebook"
@@ -9,6 +7,9 @@ class UsersController < ApplicationController
 		else
 			@user = User.find(session[:id])
 		end
+	end
+	def show
+		@user = current_user
 	end
 
 	def new
@@ -18,30 +19,30 @@ class UsersController < ApplicationController
 	def create
 		user = User.create(params[:user])
 		if user.id
-		  session[:id] = user.id
-		  redirect_to users_path
+			session[:id] = user.id
+			redirect_to users_path
 		else
-		  flash[:error] = user.errors.full_messages
-		  @user = User.new
-	  	render :new
+			flash[:error] = user.errors.full_messages
+			@user = User.new
+			render :new
 		end
 	end
 
 	def edit
-			@user = User.find(session[:id])
-			if request.xhr?
-				render :edit, layout: false
-			end
+		@user = User.find(session[:id])
+		if request.xhr?
+			render :edit, layout: false
+		end
 	end
 
 	def update
-		 @user = User.find(session[:id])
-		 if @user.update_attributes(params[:user])
-      flash[:success] = "Your info has been updated!"
-      redirect_to users_path(@user)
-     else
-      render :edit
-     end
+		@user = User.find(session[:id])
+		if @user.update_attributes(params[:user])
+			flash[:success] = "Your info has been updated!"
+			redirect_to users_path(@user)
+		else
+			render :edit
+		end
 	end
 
 end
