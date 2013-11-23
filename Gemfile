@@ -36,7 +36,8 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Deploy with Capistrano
 # gem 'capistrano'
-
+gem 'carrierwave'
+gem "mini_magick"
 
 gem 'debugger'
 gem 'omniauth'

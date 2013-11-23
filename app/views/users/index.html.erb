@@ -1,7 +1,7 @@
 <div class="container">
 
 
-	<h1> Hi<%= " #{@user.username.capitalize}" %>! Welcome to your profile page. </h1>
+	<h1> Hi<%= " #{@user.name.capitalize}" %>! Welcome to your profile page. </h1>
 
 	<ul>
 		<% @user.posts.each do |post| %>

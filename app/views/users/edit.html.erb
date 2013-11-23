@@ -15,6 +15,13 @@
     <%= user.label :password %> <br>
     <%= user.text_field :password  %>
   </div id="profile_info">
+   <% if session[:provider]!="facebook" %>
+    <div>
+      <%= user.label :photo %> <br>
+    <%= user.file_field :photo  %> <br>
+    </div>
+    <% end %>
     <%= user.submit %>
+   
   <% end %>
   
