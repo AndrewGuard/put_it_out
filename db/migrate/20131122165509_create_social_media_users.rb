@@ -5,7 +5,7 @@ class CreateSocialMediaUsers < ActiveRecord::Migration
       t.string :email
       t.string :provider
       t.string :username
-      t.integer :uid
+      t.string :uid
 
       t.timestamps
     end
