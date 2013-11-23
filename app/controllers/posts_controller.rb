@@ -50,8 +50,6 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     if @post.user_id == current_user.id
       @post.destroy
-    else
-      flash[:error] = user.errors.full_messages
     end
 
     respond_to do |format|
