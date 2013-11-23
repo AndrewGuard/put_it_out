@@ -1,10 +1,12 @@
 class User < ActiveRecord::Base
-	attr_accessible :name, :email, :password, :username, :photo
+
+	attr_accessible :name, :email, :password, :username, :photo, :admin
 	mount_uploader :photo, PhotoUploader
+	attr_writer :admin
 
 	has_many :posts
 	has_many :comments
-	has_one :timer
+	belongs_to :timer
 
 	validates_presence_of :name
 	validates :name, length: { in: 2..20, message: "- must be between 2 and 20 characters" }

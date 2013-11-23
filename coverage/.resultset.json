@@ -1,6 +1,9 @@
 {
   "RSpec": {
     "coverage": {
+
+    },
+    "timestamp": 1385171844
       "/Users/apprentice/Desktop/put_it_out/spec/controllers/integrate_resource_spec.rb": [
         1,
         null,
@@ -480,5 +483,6 @@
       ]
     },
     "timestamp": 1385184649
+ 761f449e6a028e2583b96854e8edede4cd7a8406
   }
 }

@@ -17,9 +17,9 @@ class UsersController < ApplicationController
 	end
 
 	def show
-
 		@user = User.find(session[:id])
-    end
+  end
+
 
 	def new
 		@user = User.new
