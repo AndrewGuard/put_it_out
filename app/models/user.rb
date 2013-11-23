@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
 	has_many :posts
 	has_many :comments
-	has_one :timer
+	belongs_to :timer
 
 	validates_presence_of :name
 	validates :name, length: { in: 2..20, message: "- must be between 2 and 20 characters" }
