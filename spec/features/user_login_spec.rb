@@ -1,5 +1,6 @@
 require 'spec_helper'
 
+
 feature "registered user can login" do 
 	scenario "for a particular user" do
 		user = User.create!(password: "123456", email: "ty@gottman.com", name: "ty", username: "wwwwww")

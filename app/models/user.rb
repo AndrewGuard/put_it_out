@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
-	attr_accessible :name, :email, :password, :username, :admin
+
+	attr_accessible :name, :email, :password, :username, :photo, :admin
+	mount_uploader :photo, PhotoUploader
 	attr_writer :admin
+
 	has_many :posts
 	has_many :comments
 	belongs_to :timer

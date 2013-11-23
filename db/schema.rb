@@ -17,16 +17,18 @@ ActiveRecord::Schema.define(:version => 20131123013928) do
     t.text     "text"
     t.integer  "post_id"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "social_media_user_id"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "body"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "social_media_user_id"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   create_table "resources", :force => true do |t|
@@ -42,7 +44,8 @@ ActiveRecord::Schema.define(:version => 20131123013928) do
     t.string   "email"
     t.string   "provider"
     t.string   "username"
-    t.integer  "uid"
+    t.string   "uid"
+    t.string   "photo"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -58,10 +61,11 @@ ActiveRecord::Schema.define(:version => 20131123013928) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "username"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
     t.integer  "timer_id"
     t.boolean  "admin",           :default => false
+    t.string   "photo"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
 end

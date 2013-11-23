@@ -1,7 +1,7 @@
 PutItOut::Application.routes.draw do
 
   resources :posts do
-    resources :comments, :only => [:new, :create]
+    resources :comments, :only => [:new, :create, :show]
   end
   resources :users do
     resources :timers, :only => [:create, :edit, :update, :new, :index]
@@ -13,12 +13,12 @@ PutItOut::Application.routes.draw do
   post 'login' => 'sessions#create', :as => "login_sessions"
   get 'logout' => 'sessions#destroy', :as => "logout_sessions"
 
-  
+
   match '/auth/:provider/callback', :to => 'sessions#create'
 
 
   root :to=> "posts#index"
-  #new create 
+  #new create
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

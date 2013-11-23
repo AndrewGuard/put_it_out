@@ -1,5 +1,6 @@
 FactoryGirl.define do
 
+
 	factory :user do |f|
 	f.name "foo"
 	f.email "foo@bar.com"
@@ -9,3 +10,5 @@ FactoryGirl.define do
 	end
 end
 
+
+end

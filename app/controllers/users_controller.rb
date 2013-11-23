@@ -1,7 +1,7 @@
 class UsersController < ApplicationController 
 
 	def index
-		if session[:provider]
+		if session[:provider] == "facebook"
 			@user = SocialMediaUser.find(session[:id])
 		else
 			@user = User.find(session[:id])
@@ -19,6 +19,7 @@ class UsersController < ApplicationController
 	def show
 		@user = User.find(session[:id])
   end
+
 
 	def new
 		@user = User.new
