@@ -5,6 +5,8 @@ class SocialMediaUser < ActiveRecord::Base
   has_many :comments
 
   def self.from_facebook(auth)
+  	p auth
+  	p "%%%%%%%%%%%%%%"
 		where(auth.slice(:uid, :provider)).first_or_initialize.tap do |user|
 			user.name = auth.info.name
 			user.email = auth.info.email
