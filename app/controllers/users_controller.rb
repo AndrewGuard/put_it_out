@@ -1,7 +1,7 @@
 class UsersController < ApplicationController 
 
 	def index
-		if session[:provider]
+		if session[:provider] == "facebook"
 			@user = SocialMediaUser.find(session[:id])
 		else
 			@user = User.find(session[:id])
@@ -17,13 +17,9 @@ class UsersController < ApplicationController
 	end
 
 	def show
-<<<<<<< HEAD
+
 		@user = User.find(session[:id])
-  end
-=======
-		@user = User.find(params[:id])
-	end
->>>>>>> a399ab2509f3b2505fd6f9a7b06af388648c7362
+    end
 
 	def new
 		@user = User.new
@@ -41,7 +37,6 @@ class UsersController < ApplicationController
 		end
 	end
 
-<<<<<<< HEAD
 	def edit
 			@user = User.find(session[:id])
 			if request.xhr?
@@ -58,7 +53,5 @@ class UsersController < ApplicationController
       render :edit
      end
 	end
-=======
 
->>>>>>> a399ab2509f3b2505fd6f9a7b06af388648c7362
 end

@@ -265,7 +265,7 @@
         1,
         1,
         null,
-        1,
+        0,
         0,
         null,
         null,
@@ -278,7 +278,7 @@
         1,
         1,
         1,
-        1,
+        0,
         0,
         null,
         null,
@@ -296,10 +296,10 @@
         1,
         1,
         1,
-        1,
-        1,
-        1,
-        1,
+        0,
+        0,
+        0,
+        0,
         0,
         0,
         0,
@@ -335,6 +335,7 @@
       "/Users/apprentice/Desktop/put_it_out/spec/features/user_login_spec.rb": [
         1,
         null,
+        null,
         1,
         1,
         1,
@@ -342,7 +343,7 @@
         1,
         1,
         1,
-        0,
+        1,
         null,
         null
       ],
@@ -427,6 +428,6 @@
         null
       ]
     },
-    "timestamp": 1385163702
+    "timestamp": 1385172414
   }
 }
