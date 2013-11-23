@@ -12,7 +12,7 @@
 	<li>
 		<%= resource.title %> | <a href="<%=resource.link%>"><%=resource.link%></a><br>
 		<p><%= resource.description %></p>
-				<% if @user.object_id == 1 && @user !=nil %>
+				<% if @user.admin == true && @user !=nil %>
 				 <%= form_for(resource, :method => "delete", :confirm => "fo realz?") do |f| %>
     			<%= f.submit "Delete Post"%>
 	    		<%= link_to "Edit", edit_resource_path(resource) %>
@@ -25,7 +25,7 @@
 </div>
 
 <div>
-	<% if @user.object_id == 1 && @user != nil %>
+	<% if @user.admin == true && @user != nil %>
 	<%= link_to "Add Resource", new_resource_path %>
 	<% end %>
 </div>

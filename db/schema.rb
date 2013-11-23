@@ -11,9 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
-ActiveRecord::Schema.define(:version => 20131122171555) do
-
+ActiveRecord::Schema.define(:version => 20131123013928) do
 
   create_table "comments", :force => true do |t|
     t.text     "text"
@@ -25,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20131122171555) do
 
   create_table "posts", :force => true do |t|
     t.string   "title"
-    t.string   "body"
+    t.text     "body"
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -44,13 +42,7 @@ ActiveRecord::Schema.define(:version => 20131122171555) do
     t.string   "email"
     t.string   "provider"
     t.string   "username"
-    t.string   "uid"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "timers", :force => true do |t|
-    t.integer  "user_id"
+    t.integer  "uid"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -66,9 +58,10 @@ ActiveRecord::Schema.define(:version => 20131122171555) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "username"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.integer  "timer_id"
+    t.boolean  "admin",           :default => false
   end
 
 end
