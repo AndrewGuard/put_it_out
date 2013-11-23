@@ -5,6 +5,7 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rails'
 require 'coveralls'
+require "rack_session_access/capybara"
 Coveralls.wear!
 
 
