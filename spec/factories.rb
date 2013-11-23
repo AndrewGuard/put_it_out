@@ -8,5 +8,4 @@ FactoryGirl.define do
 	f.password "password"
 	f.admin "true"
 	end
-end
 
