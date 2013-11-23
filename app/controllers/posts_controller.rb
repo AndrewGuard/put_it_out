@@ -9,6 +9,9 @@ class PostsController < ApplicationController
   def show
     #show a specific post
     @post = Post.find_by_id(params[:id])
+    if @post.user == nil
+      @social_media_user = true
+    end
   end
 
   def new
