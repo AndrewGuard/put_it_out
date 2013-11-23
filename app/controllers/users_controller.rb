@@ -1,4 +1,5 @@
 class UsersController < ApplicationController 
+	include ApplicationHelper
 
 	def index
 		if session[:provider] == "facebook"
@@ -17,7 +18,7 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		@user = User.find(session[:id])
+		@user = current_user
   end
 
 
