@@ -1,25 +1,19 @@
-class UsersController < ApplicationController 
+class UsersController < ApplicationController
+	# FACEBOOK USER TEST INFO
+	#jvvchapman@gmail.com
+	#p@ssword
 
 	def index
 		if session[:provider] == "facebook"
 			@user = SocialMediaUser.find(session[:id])
 		else
 			@user = User.find(session[:id])
-				# respond_to do |format|
-	   #    format.js do
-	   #      render nothing: true
-	   #    end
-	   #    format.any do
-	   #      redirect_to posts_path
-	   #    end
-	     # end
 		end
 	end
 
 	def show
 		@user = User.find(params[:id])
   end
-
 
 	def new
 		@user = User.new
@@ -33,7 +27,7 @@ class UsersController < ApplicationController
 		else
 		  flash[:error] = user.errors.full_messages
 		  @user = User.new
-	  	  render :new 
+	  	render :new
 		end
 	end
 
