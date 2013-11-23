@@ -43,6 +43,8 @@ gem 'debugger'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'coveralls', require: false
+gem 'bootstrap-sass', '2.3.2.0'
+
 
 group :development, :test do
 	gem 'rspec-rails', "~>2.0"
