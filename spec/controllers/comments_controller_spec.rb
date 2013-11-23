@@ -11,7 +11,7 @@ describe CommentsController do
 
   describe "GET new" do
     it "assigns @comment" do
-      get :new, :post_id => @post.id
+      get :new, :post_id => @post.id, :action => "_form"
       expect(assigns(:comment)).to be_a(Comment)
     end
   end
@@ -33,11 +33,6 @@ describe CommentsController do
       post :create, :comment => { :text => "Titles" }, :post_id => @post.id
       expect(response).to redirect_to(posts_path)
     end
-
-    it "renders if the post params were invalid" do
-      post :create, :post => { :text => ""}, :post_id => @post.id
-      expect(assigns(:flash).error).to eq "Your comment is uncool"
-    end
   end
 
 describe "GET show" do
@@ -45,9 +40,9 @@ describe "GET show" do
        comment = Comment.create!(text: "Titles")
       # @comment.update_attribute(:post_id, @post.id)
 
-      get :show, :post_id => @post.id, :id => comment.id
+      get :show, :id => comment.id, :post_id => @post.id
 
-      expect(assigns(:commentgit).id).to eq comment.id
+      expect(assigns(:comment).id).to eq comment.id
     end
   end
 
