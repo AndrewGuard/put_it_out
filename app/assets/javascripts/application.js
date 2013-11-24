@@ -18,4 +18,21 @@ $(function() {
   $("a[data-remote=true]").on("ajax:success", function(event, data) {
     $("a[data-remote=true]").replaceWith(data);
   });
+
+function countUpTimer(){
+	totalSeconds = document.getElementById("exact_seconds").val();
+	secondsLabel = document.getElementById("seconds");
+	minutesLabel = document.getElementById("minutes");
+	hoursLabel = document.getElementById("hours");
+	daysLabel = document.getElementById("days");
+
+
+}
+
+
+
+
+
+
+
 });
