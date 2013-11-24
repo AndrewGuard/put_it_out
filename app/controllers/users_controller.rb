@@ -1,5 +1,6 @@
 class UsersController < ApplicationController 
 	include ApplicationHelper
+	include TimerHelper
 
 	def index
 		if session[:provider] == "facebook"
@@ -7,7 +8,13 @@ class UsersController < ApplicationController
 		else
 			@user = current_user
 		end
+	@timer = Timer.new
+		if @last_cig = Timer.find_by_user_id(@user.id)
+	 		@time_in_seconds = current_timer(@user.id)
+		end
 	end
+	
+
 	def show
 		@user = current_user
 	end

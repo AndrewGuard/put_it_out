@@ -59,4 +59,24 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def upvote
+    post = Post.find(params[:id])
+    if current_user.class.inspect =="SocialMediaUser"
+      post.votes.create(value:1, social_media_user_id: current_user.id)
+    else
+      post.votes.create(value:1, user_id: current_user.id)
+    end
+    redirect_to post_path
+  end
+
+  def downvote
+    post = Post.find(params[:id])
+    if current_user.class.inspect == "SocialMediaUser"
+      post.votes.create(value: -1, social_media_user_id: current_user.id)
+    else
+      post.votes.create(value: -1, user_id: current_user.id)
+    end
+    redirect_to post_path
+  end
 end

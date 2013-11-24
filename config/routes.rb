@@ -9,7 +9,9 @@ PutItOut::Application.routes.draw do
     resources :timers, :only => [:create, :edit, :update, :new, :index]
   end
 
-  resources :social_media_users, :only => [:show]
+  resources :social_media_users, :only => [:show] do
+    resources :timers, :only => [:create, :update, :new,]
+  end
 
   resources :resources
 
@@ -24,6 +26,14 @@ PutItOut::Application.routes.draw do
 
   get "about/us"
   get "about/company"
+
+  #upvoting/downvoting recent posts
+  post "/posts/:id/upvote" => 'posts#upvote'
+  post "/posts/:id/downvote" => 'posts#downvote'
+
+  #upvoting/downvoting comments
+  post "/comments/:id/upvote" => 'comments#upvote'
+  post "/comments/:id/downvote" => 'comments#downvote'
 
 
   root :to=> "posts#index"
