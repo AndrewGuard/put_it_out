@@ -1,35 +1,41 @@
 
-.navbar {
-
-  background-color: tomato;
-  padding: 5px;
-  height: 60px;
-
-}
 
 h1 {
    font-family: Tahoma;
 }
 
-.navbar ul li  {
-  display: inline;
-  padding-right: 100px;
-  float: left;
+img {
+  padding: 3px;
+}
+
+.about {
+  text-align: center;
+  font-size:  300%;
+  font-weight: bold;
+  margin-top:  20px;
+  margin-bottom:  20px;
+}
+
+.marketing {
+  text-align; center;
+  margin-bottom: 20px;
+  padding-left: 100px;
+
+}
+
+.col-lg-4 {
+  width: 15%;
+  float:left;
+  padding: 20px;
+  text-align:center;
+}
+
+div {
+display: block;
 }
 
 
 
-.navbar a {
-    color: white;
-    text-decoration: none;
-    font-family: Tahoma;
-    font-size:150%
-
-}
-
-.navbar a:hover{
-  color: yellow;
-}
 
  #profile_info {
   padding-right: 5px;
