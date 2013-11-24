@@ -1,35 +1,17 @@
 
-.navbar {
-
-  background-color: tomato;
-  padding: 5px;
-  height: 60px;
-
-}
 
 h1 {
    font-family: Tahoma;
 }
 
-.navbar ul li  {
-  display: inline;
-  padding-right: 100px;
-  float: left;
+img {
+  padding: 3px;
 }
 
 
-
-.navbar a {
-    color: white;
-    text-decoration: none;
-    font-family: Tahoma;
-    font-size:150%
-
-}
-
-.navbar a:hover{
-  color: yellow;
-}
+/*.nav {
+  font-size:  200%;
+}*/
 
  #profile_info {
   padding-right: 5px;
