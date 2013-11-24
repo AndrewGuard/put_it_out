@@ -6,7 +6,6 @@ class SessionsController < ApplicationController
 	def create
 		if request.env['omniauth.auth']
 			user = SocialMediaUser.from_facebook(request.env['omniauth.auth'])
-			debugger
 			cookies[:auth_token] = user.auth_token
 			session[:provider] = user.provider	
 			redirect_to users_path
