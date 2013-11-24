@@ -8,7 +8,7 @@ PutItOut::Application.routes.draw do
   resources :users do
     resources :timers, :only => [:create, :edit, :update, :new, :index]
   end
-  
+
   resources :social_media_users, :only => [:show]
 
   resources :resources
@@ -21,6 +21,9 @@ PutItOut::Application.routes.draw do
 
 
   match '/auth/:provider/callback', :to => 'sessions#create'
+
+  get "about/us"
+  get "about/company"
 
 
   root :to=> "posts#index"
