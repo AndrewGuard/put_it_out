@@ -10,10 +10,10 @@ def new
 	@timer = Timer.new
 	if @last_cig = Timer.find_by_user_id(@user.id)
 	 	@time_in_seconds = current_timer(@user.id)
-	 	@days = display_days(time_in_seconds)
-	 	@hours = display_hours(time_in_seconds)
-	 	@minutes = display_minutes(time_in_seconds)
-	 	@seconds = display_seconds(time_in_seconds)
+	 	@days = display_days(@time_in_seconds)
+	 	@hours = display_hours(@time_in_seconds)
+	 	@minutes = display_minutes(@time_in_seconds)
+	 	@seconds = display_seconds(@time_in_seconds)
 	end
 end
 
