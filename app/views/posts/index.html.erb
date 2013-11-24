@@ -1,13 +1,8 @@
  <div class="container">
  	<h2>Most Recent Posts By Users </h2>
  	<% @posts.each do |post| %>
- 		<h3><a href="/posts/<%= post.id %> "><%= post.title.upcase %></a></h3>
- 		<p><%= post.body %></p>
- 		<div style="font-weight:bold;"> This post has a score of: <%=post.vote_count %></div>
- 		<% if current_user %>
- 		<div><%= button_to 'Was this post Helpful? +1', "/posts/#{post.id}/upvote", :method => :post%>
- 		<%= button_to 'Did this post just suck? -1', "/posts/#{post.id}/downvote", :method => :post%></div>
- 		<% end %>
+ 		<h3><a href="/posts/<%= post.id %>"><%= post.title.upcase %></a></h3>
+ 		<p><%= truncate(post.body, length: 300)%></p>
  	<% end %>
  </div>
 
