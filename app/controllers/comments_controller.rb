@@ -8,7 +8,9 @@ class CommentsController < ApplicationController
     @comment.update_attribute(:provider, session[:provider])
     @comment.update_attribute(:user_id, session[:id])
     @comment.update_attribute(:post_id, params[:post_id])
-
+    if session[:provider] == "facebook"
+      @comment.social_media_user_id = session[:id]
+    end
       if @comment.valid?
         redirect_to :back
       else
