@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "Winston.Thorman@gmail.com"
 
   def welcome_email(user)
   	@user = user
@@ -9,5 +9,5 @@ class UserMailer < ActionMailer::Base
 
   def password_reset_email(user)
   end
-  
+
 end
