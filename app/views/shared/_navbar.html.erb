@@ -1,19 +1,34 @@
-<div class="navbar">
-  <ul>
-    <!-- Home link is available on each page -->
-    <li> <div class='home_navbar'><%= link_to "Put It Out", root_path %></div></li>
-    <li><%= link_to "Resources", resources_path %></li>
+    <div class="navbar navbar-inverse navbar-fluid-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          <!-- <a class="brand" href="#"> Put It Out</a> -->
+            <%= link_to "Put It Out", root_path, {:class => "brand"}%>
+            <div class="container-fluid nav-collapse">
+              <ul class="nav" >
+                <!-- Home link is available on each page -->
 
-    <!-- If user is signed in-->
-    <% if current_user %>
-      <li id="right"><%= link_to "Create a new post", new_post_path %></li>
-      <li id="right"> <%= link_to "Logout", logout_sessions_path %></li>
-       <li class="right"><%= link_to "MyProfile", users_path %></li>
-     <% if current_user.photo%> 
-       <li class="right"> <img src="<%= current_user.photo %>"</li>
-     <% end %>
-    <% else %>
-    <!-- If user isn't signed in -->
-     <li id="right"><%= link_to "Sign Up or Login", new_user_path %></li>
-    <% end %>
-</div>
+                <li><%= link_to "Resources", resources_path %></li>
+
+                <!-- If user is signed in-->
+                <% if current_user %>
+                  <li><%= link_to "Create a new post", new_post_path %></li>
+
+                      <li><%= link_to "Logout", logout_sessions_path %></li>
+                      <li><%= link_to "MyProfile", users_path %></li>
+
+                 <% if current_user.photo%>
+                   <li> <img src="<%= current_user.photo %>"></li>
+                 <% end %>
+                <% else %>
+
+                 <li id="right"><%= link_to "Sign Up or Login", new_user_path %></li>
+                <% end %>
+              </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
