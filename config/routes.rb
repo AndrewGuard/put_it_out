@@ -9,7 +9,9 @@ PutItOut::Application.routes.draw do
     resources :timers, :only => [:create, :edit, :update, :new, :index]
   end
 
-  resources :social_media_users, :only => [:show]
+  resources :social_media_users, :only => [:show] do
+    resources :timers, :only => [:create, :update, :new,]
+  end
 
   resources :resources
 
