@@ -2,25 +2,27 @@
 
 	<h1> How long has it been? </h1>
 		<div id="count_up_timer">
-
-
-			<%= ((@world_time - @last_cig.updated_at)/60) %> minutes
-
-
+			<p class="digits">
+				<label id="days">00</label>
+				<label id="hours">00</label>
+				<label id="minutes">00</label>
+				<label id="seconds">00</label>
+				<span id="exact_seconds" data-seconds= "<%= @time_in_seconds %>"></span>
+			</p>
 		</div>
 
-				<% if current_user.timer_id == nil? %>
+				<% if current_user.timer_id == nil %>
 			<%= form_for [@user, @timer] do |f| %>
 				<%= f.submit "I'm done with smoking!" %>
 			<% end %>
 			<% end %>
 			
-			<% if @last_cig.user_id != nil %>
+			
+				<% if @last_cig.user_id != nil %>
 		<%= form_for [@user, @last_cig] do |f| %>
 			<%= f.submit "I just smoked", :url => ("/users/#{@user.id}/timers/#{@last_cig.id}") %>
 				<% end %>
 		<% end %>
-
 
 
 </div>

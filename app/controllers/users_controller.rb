@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 		user = User.create(params[:user])
 		if user.id
 			session[:id] = user.id
+			UserMailer.welcome_email(user).deliver
 			redirect_to users_path
 		else
 			flash[:error] = user.errors.full_messages

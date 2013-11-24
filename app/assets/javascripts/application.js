@@ -19,4 +19,34 @@ $(function() {
   $("a[data-remote=true]").on("ajax:success", function(event, data) {
     $("a[data-remote=true]").replaceWith(data);
   });
+
+  // $("#exact_seconds").hide()
+function Countuptimer(){
+	totalSeconds = Math.floor($("#exact_seconds").data("seconds"));
+	// debugger;
+	secondsLabel = document.getElementById("seconds");
+	minutesLabel = document.getElementById("minutes");
+	hoursLabel = document.getElementById("hours");
+	daysLabel = document.getElementById("days");
+}
+
+Countuptimer.prototype.setTime = function(){
+	this.totalSeconds++;
+	secondsLabel.innerHTML = pad((totalSeconds % 86600 % 3600 % 60) + ' seconds');
+	minutesLabel.innerHTML = pad((parseInt(totalSeconds% 86600 % 3600 / 60)) + ' minutes');
+	hoursLabel.innerHTML = pad((parseInt(totalSeconds % 86400 / 3600)) + ' hours' );
+	daysLabel.innerHTML = pad((parseInt(totalSeconds/86400)) + ' days' );
+
+	function pad(val) {
+		var valString = val + "";
+		if (valString.length < 2) {
+			return "0" + valString;
+		} else {
+				return valString;
+		}
+		}
+
+	}
+	var noSmoking = new Countuptimer()
+	setInterval(noSmoking.setTime, 1000);
 });

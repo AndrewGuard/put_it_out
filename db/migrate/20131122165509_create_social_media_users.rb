@@ -7,6 +7,7 @@ class CreateSocialMediaUsers < ActiveRecord::Migration
       t.string :username
       t.string :uid
       t.string :photo
+      t.boolean :admin, :default => false
 
       t.timestamps
     end

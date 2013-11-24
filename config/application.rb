@@ -59,6 +59,9 @@ module PutItOut
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
+    #generating URLs in Action Mailer Views
+    config.action_mailer.default_url_options = { host: 'putitout.com'}
+
     config.assets.initialize_on_precompile = false
   end
 end
