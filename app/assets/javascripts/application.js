@@ -20,7 +20,7 @@ $(function() {
     $("a[data-remote=true]").replaceWith(data);
   });
 
-  // $("#exact_seconds").hide()
+
 function Countuptimer(){
 	totalSeconds = Math.floor($("#exact_seconds").data("seconds"));
 	// debugger;
