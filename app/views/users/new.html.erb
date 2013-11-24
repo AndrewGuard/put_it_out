@@ -1,40 +1,46 @@
 <div class="container"><%= form_for(@user) do |user| %>
-<h1>Create Account</h1>
-<div>
-	<%= user.label :name %>
-	<%= user.text_field :name  %>
-</div>
-<div>
-	<%= user.label :email %>
-	<%= user.text_field :email  %>
-</div>
-<div>
-	<%= user.label :username %>
-	<%= user.text_field :username  %>
-</div>
-<div>
-	<%= user.label :password %>
-	<%= user.password_field :password  %>
-</div>
-	<%= user.submit nil, id: "create_account" %>
-<% end %>
-<%= button_to "Create An Account With Facebook", '/auth/facebook', :class => 'fbook_button', :id => 'fbook_button1' %>
+<<<<<<< HEAD
+	<h1>Create Account</h1>
+	<div>
+		<%= user.label :name %> <br>
+		<%= user.text_field :name  %>
+	</div>
+	<div>
+		<%= user.label :email %> <br>
+		<%= user.text_field :email  %>
+	</div>
+	<div>
+		<%= user.label :username %> <br>
+		<%= user.text_field :username  %>
+	</div>
+	<div>
+		<%= user.label :password %> <br>
+		<%= user.password_field :password  %>
+	</div>
+		<%= user.submit nil, id: "create_account" %>
+	<% end %>
+	<%= button_to "Create An Account With Facebook", '/auth/facebook', :class => 'fbook_button', :id => 'fbook_button1' %>
 </div>
 
 <div class="container">
-<h1>Login</h1>
-<%=form_tag login_sessions_path do %>
-<div>
-        <%= label_tag :email %>
-        <%= text_field_tag :email, nil, id: "login_email" %><br>
-</div>
-<div>
-        <%= label_tag :password %>
-        <%= password_field_tag :password,  nil, id: "login_password" %><br>
-        <%= submit_tag  nil, id: "login_user" %>
-</div>
-<% end %>
-<%= button_to "Login With Facebook", '/auth/facebook', :class => 'fbook_button', :id => 'fbook_button2' %>
+	<h1>Login</h1>
+		<%=form_tag login_sessions_path do %>
+			<div>
+			    <%= label_tag :email %> <br>
+			    <%= text_field_tag :email, nil, id: "login_email" %><br>
+			</div>
+			<div>
+	        <%= label_tag :password %> <br>
+	        <%= password_field_tag :password,  nil, id: "login_password" %><br>
+	        <%= submit_tag  nil, id: "login_user" %>
+			</div>
+			<p><%= link_to "Forgot your password?", new_password_reset_path %></p>
+			<div>
+					<%= label_tag :remember_me %>
+					<%= check_box_tag :remember_me, 1, params[:remember_me] %>
+			</div>
+		<% end %>
+	<%= button_to "Login With Facebook", '/auth/facebook', :class => 'fbook_button', :id => 'fbook_button2' %>
 </div>
 
 

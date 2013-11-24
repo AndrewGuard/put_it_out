@@ -40,7 +40,7 @@ PutItOut::Application.configure do
   config.action_mailer.smtp_settings = {
   address:              'smtp.gmail.com',
   port:                 587,
-  domain:               'putitout.com',
+  domain:               'localhost:3000',
   user_name:            'Winston.Thorman@gmail.com',
   password:             'MvcLover',
   authentication:       'plain',
