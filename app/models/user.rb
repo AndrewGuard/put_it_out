@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 
 	attr_accessible :name, :email, :password, :username, :photo, :admin
 	mount_uploader :photo, PhotoUploader
+	before_create { generate_token(:auth_token) }
 	
 
 	has_many :posts
@@ -19,8 +20,11 @@ class User < ActiveRecord::Base
 	validates :username, length: { in: 6..20, message: "- must be between 6 and 20 characters" }, on: :create
 	validates_presence_of :password, :on => :create
 	validates :password, length: { in: 6..20, message: "- must be between 6 and 20 characters" }, on: :create
-
-
 	has_secure_password
 
+	def generate_token(column)
+		begin
+			self[column] = SecureRandom.urlsafe_base64
+		end while User.exists?(column => self[column])
+	end
 end

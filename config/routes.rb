@@ -1,5 +1,7 @@
 PutItOut::Application.routes.draw do
 
+  get "password_resets/new"
+
   resources :posts do
     resources :comments, :only => [:new, :create, :show]
   end
@@ -10,6 +12,8 @@ PutItOut::Application.routes.draw do
   resources :social_media_users, :only => [:show]
 
   resources :resources
+
+  resources :password_resets
 
   get 'login' => 'sessions#new', :as => "new_session"
   post 'login' => 'sessions#create', :as => "login_sessions"

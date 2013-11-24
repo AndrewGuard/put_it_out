@@ -13,8 +13,12 @@ class SessionsController < ApplicationController
 			user = User.find_by_email(params[:email])
 			if user
 				if user.authenticate(params[:password])
-					session[:id] = user.id
+					if params[:remember_me]
+					cookies.permanent[:auth_token] = user.auth_token
+					else
+					cookies[:auth_token] = user.auth_token
 					session[:provider] = "regular_user"
+					end
 					redirect_to users_path
 				else
 					flash[:error] = ["Invalid email or password"]
@@ -29,7 +33,7 @@ class SessionsController < ApplicationController
 	end
 
 	def destroy
-		session[:id]= nil
+		cookies.delete(:auth_token)
 		session[:provider] = nil
 		redirect_to root_url
 	end

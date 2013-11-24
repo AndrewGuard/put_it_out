@@ -63,5 +63,6 @@ module PutItOut
     config.action_mailer.default_url_options = { host: 'putitout.com'}
 
     config.assets.initialize_on_precompile = false
+    
   end
 end
