@@ -4,6 +4,7 @@ class SocialMediaUser < ActiveRecord::Base
 
   has_many :posts
   has_many :comments
+  has_many :votes
 
   def self.from_facebook(auth)
 		where(auth.slice(:uid, :provider)).first_or_initialize.tap do |user|

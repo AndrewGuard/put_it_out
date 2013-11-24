@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131123013928) do
+ActiveRecord::Schema.define(:version => 20131124005929) do
 
   create_table "comments", :force => true do |t|
     t.text     "text"
@@ -47,8 +47,9 @@ ActiveRecord::Schema.define(:version => 20131123013928) do
     t.string   "username"
     t.string   "uid"
     t.string   "photo"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.boolean  "admin",      :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "timers", :force => true do |t|
@@ -68,5 +69,17 @@ ActiveRecord::Schema.define(:version => 20131123013928) do
     t.integer  "timer_id"
     t.boolean  "admin",           :default => false
   end
+
+  create_table "votes", :force => true do |t|
+    t.integer  "votable_id"
+    t.string   "votable_type"
+    t.integer  "value"
+    t.integer  "user_id"
+    t.integer  "social_media_user_id"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  add_index "votes", ["user_id", "votable_id", "votable_type"], :name => "index_votes_on_user_id_and_votable_id_and_votable_type", :unique => true
 
 end
