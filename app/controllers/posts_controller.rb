@@ -67,7 +67,15 @@ class PostsController < ApplicationController
     else
       post.votes.create(value:1, user_id: current_user.id)
     end
+    respond_to do |format|
+      formatd.js do
+        {}.to_json
+        render nothing: true
+      end
+      format.any do
     redirect_to post_path
+      end
+    end
   end
 
   def downvote

@@ -50,3 +50,10 @@ Countuptimer.prototype.setTime = function(){
 	var noSmoking = new Countuptimer()
 	setInterval(noSmoking.setTime, 1000);
 });
+
+$(function(){
+  $("button_to[data-remote=true]").on("ajax:sucess", function(response){
+  	var newCount = $('button_to').closest(".vote_count")
+  	new_Count.replaceWith(response.vote_count)
+  }, "json");
+});
