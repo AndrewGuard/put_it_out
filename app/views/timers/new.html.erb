@@ -18,11 +18,12 @@
 			<% end %>
 			
 			
-				<% if @last_cig.user_id != nil %>
-		<%= form_for [@user, @last_cig] do |f| %>
-			<%= f.submit "I just smoked", :url => ("/users/#{@user.id}/timers/#{@last_cig.id}") %>
-				<% end %>
+		<% if current_user.timer_id != nil %>
+			<%= form_for [@user, @last_cig] do |f| %>
+				<%= f.submit "I just smoked", :url => ("/users/#{@user.id}/timers/#{@last_cig.id}") %>
+			<% end %>
 		<% end %>
+		
 
 
 </div>

@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-	attr_accessible :text
+	attr_accessible :text, :provider
 	belongs_to :user
 	belongs_to :social_media_user
 	belongs_to :post

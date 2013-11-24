@@ -15,3 +15,4 @@
 /tmp
 
 /config/initializers/social_media_login_keys.yml
+/config/local_env.yml

@@ -1,21 +1,18 @@
 class CommentsController < ApplicationController
+  include ApplicationHelper
+  
   def new
     @comment = Comment.new
   end
 
   def create
-    @comment = Comment.create(text: params[:comment][:text])
-    @comment.update_attribute(:provider, session[:provider])
-    @comment.update_attribute(:user_id, session[:id])
+    @comment = current_user.comments.create(text: params[:comment][:text])
     @comment.update_attribute(:post_id, params[:post_id])
-    if session[:provider] == "facebook"
-      @comment.social_media_user_id = session[:id]
-    end
-      if @comment.valid?
+    if @comment.valid?
         redirect_to :back
-      else
+    else
         flash[:error] = "Your comment is uncool"
-      end
+    end
   end
 
     def show

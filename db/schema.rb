@@ -11,11 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131124005929) do
+ActiveRecord::Schema.define(:version => 20131124192447) do
 
   create_table "comments", :force => true do |t|
     t.text     "text"
-    t.string   "provider"
     t.integer  "post_id"
     t.integer  "user_id"
     t.integer  "social_media_user_id"
@@ -47,9 +46,9 @@ ActiveRecord::Schema.define(:version => 20131124005929) do
     t.string   "username"
     t.string   "uid"
     t.string   "photo"
-    t.boolean  "admin",      :default => false
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "auth_token"
   end
 
   create_table "timers", :force => true do |t|
@@ -64,10 +63,13 @@ ActiveRecord::Schema.define(:version => 20131124005929) do
     t.string   "password_digest"
     t.string   "username"
     t.string   "photo"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.integer  "timer_id"
-    t.boolean  "admin",           :default => false
+    t.boolean  "admin",                  :default => false
+    t.string   "password_reset_token"
+    t.datetime "password_expires_after"
+    t.string   "auth_token"
   end
 
   create_table "votes", :force => true do |t|
