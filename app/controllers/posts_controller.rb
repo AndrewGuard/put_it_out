@@ -12,6 +12,7 @@ class PostsController < ApplicationController
     if @post.user == nil
       @social_media_user = true
     end
+    
   end
 
   def new

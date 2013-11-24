@@ -1,10 +1,14 @@
 require 'spec_helper'
 
 feature "User managing resources" do
-	
 	before do
-	@user= FactoryGirl.create(:user)
-	end
+	user= FactoryGirl.create(:user)
+	visit "/users/new"
+	fill_in "login_email", :with => user.email
+	fill_in "login_password", :with => user.password
+	click_button "login_user"
+end
+
 
 	scenario "when creating resources" do
 		visit "/resources"

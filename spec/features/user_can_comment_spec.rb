@@ -10,7 +10,7 @@ feature "User posts a comment" do
     fill_in "post_title", :with => "Testy Title"
     fill_in "post_body", :with => "Testy Body"
     click_button "Create Post"
-    visit "/posts/1"
+    click_link "Testy Title"
     fill_in "comment_text", :with => "Gotta Post Gatta Post Dream Team"
     click_button "Create Comment"
     visit "/posts/1"
