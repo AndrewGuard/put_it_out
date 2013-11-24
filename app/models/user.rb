@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-	attr_accessible :name, :email, :password, :username, :photo, :admin
+	attr_accessible :name, :email, :password, :username, :photo, :admin, :auth_token
 	mount_uploader :photo, PhotoUploader
 	before_create { generate_token(:auth_token) }
 	

@@ -3,9 +3,9 @@ class UsersController < ApplicationController
 
 	def index
 		if session[:provider] == "facebook"
-			@user = SocialMediaUser.find(session[:id])
+			@user = SocialMediaUser.find_by_auth_token(cookies[:auth_token])
 		else
-			@user = User.find(session[:id])
+			@user = current_user
 		end
 	end
 	def show
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 	def create
 		user = User.create(params[:user])
 		if user.id
-			session[:id] = user.id
+			cookies[:auth_token] = user.auth_token
 			UserMailer.welcome_email(user).deliver
 			redirect_to users_path
 		else
@@ -30,14 +30,14 @@ class UsersController < ApplicationController
 	end
 
 	def edit
-		@user = User.find(session[:id])
+		@user = current_user		
 		if request.xhr?
 			render :edit, layout: false
 		end
 	end
 
 	def update
-		@user = User.find(session[:id])
+		@user = current_user
 		if @user.update_attributes(params[:user])
 			flash[:success] = "Your info has been updated!"
 			redirect_to users_path(@user)
