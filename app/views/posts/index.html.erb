@@ -1,11 +1,9 @@
  <div class="container">
- 	<h2>Showing all posts! </h2>
- 	<table>
+ 	<h2>Most Recent Posts By Users </h2>
  	<% @posts.each do |post| %>
- 		<tr><td> <a href="/posts/<%= post.id %> "><%= post.title %>-Votes: <%=post.vote_count %></a></td><br>
- 		<td> <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td></tr>
+ 		<h3><a href="/posts/<%= post.id %>"><%= post.title.upcase %></a></h3>
+ 		<p><%= truncate(post.body, length: 300)%></p>
  	<% end %>
- 	</table>
  </div>
 
 

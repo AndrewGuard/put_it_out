@@ -15,8 +15,28 @@ class CommentsController < ApplicationController
     end
   end
 
-    def show
-      @comment = Comment.find(params[:id])
+  def show
+   @comment = Comment.find(params[:id])
+  end
+
+  def upvote
+    comment = Comment.find(params[:id])
+    if current_user.class.inspect == "SocialMediaUser"
+      comment.votes.create(value:1, social_media_user_id: current_user.id)
+    else
+      comment.votes.create(value:1, user_id: current_user.id)
     end
+    redirect_to post_path(comment.post)
+  end
+  
+  def downvote
+    comment = Comment.find(params[:id])
+    if current_user.class.inspect == "SocialMediaUser"
+      comment.votes.create(value:-1, social_media_user_id: current_user.id)
+    else
+      comment.votes.create(value:-1, user_id: current_user.id)
+    end
+    redirect_to post_path(comment.post)
+  end
 end
 
