@@ -26,3 +26,6 @@
 background-color:lightblue;
 }
 
+.digits label {
+	display: inline-block;
+}
