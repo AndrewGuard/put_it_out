@@ -59,4 +59,15 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def upvote
+    post = Post.find(params[:id])
+    post.votes.create(value:1)
+    redirect_to posts_path
+  end
+  def downvote
+    post = Post.find(params[:id])
+    post.votes.create(value: -1)
+    redirect_to posts_path
+  end
 end

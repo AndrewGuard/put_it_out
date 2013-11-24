@@ -2,5 +2,8 @@
 	<ul class="comment_header">
 		<li class='comment'><i data-comment-id='<%= comment.id %>' class="comment_body"></i><%= comment.text %></li>
 	</ul>
-
+	<% if current_user %>
+	  <div><%= button_to 'Was this comment helpful? +1', "/comments/#{comment.id}/upvote", :method => :post%>
+	  <%= button_to 'Did this comment just suck? -1', "/comments/#{comment.id}/downvote", :method => :post%></div>
+    <% end %>
 </div>
