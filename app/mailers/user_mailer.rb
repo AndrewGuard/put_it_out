@@ -3,11 +3,13 @@ class UserMailer < ActionMailer::Base
 
   def welcome_email(user)
   	@user = user
-  	@url = 'http://dontsmoke.com/login'
   	mail(to: @user.email, subject: 'Welcome to Put It Out')
   end
 
-  def password_reset_email(user)
-  end
+  def password_reset(user)
+  	@user = user
+  	@url = 'localhost:3000'
+  	mail(to: @user.email, subject: "Password Reset")
+	end
 
 end
