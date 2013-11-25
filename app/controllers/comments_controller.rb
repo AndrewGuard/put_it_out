@@ -19,24 +19,39 @@ class CommentsController < ApplicationController
    @comment = Comment.find(params[:id])
   end
 
-  def upvote
+
+   def upvote
     comment = Comment.find(params[:id])
-    if current_user.class.inspect == "SocialMediaUser"
+    if current_user.class.inspect =="SocialMediaUser"
       comment.votes.create(value:1, social_media_user_id: current_user.id)
     else
       comment.votes.create(value:1, user_id: current_user.id)
     end
-    redirect_to post_path(comment.post)
+    respond_to do |format|
+      format.js do
+        render partial: 'posts/vote_count', layout: false, locals: {:vote_count => comment.vote_count}
+      end
+      format.any do
+        redirect_to post_path(comment.post)
+      end
+    end
   end
   
-  def downvote
+
+def downvote
     comment = Comment.find(params[:id])
-    if current_user.class.inspect == "SocialMediaUser"
+    if current_user.class.inspect =="SocialMediaUser"
       comment.votes.create(value:-1, social_media_user_id: current_user.id)
     else
       comment.votes.create(value:-1, user_id: current_user.id)
     end
-    redirect_to post_path(comment.post)
+    respond_to do |format|
+      format.js do
+        render partial: 'posts/vote_count', layout: false, locals: {:vote_count => comment.vote_count}
+      end
+      format.any do
+        redirect_to post_path(comment.post)
+      end
+    end
   end
 end
-

@@ -23,23 +23,22 @@ $(function() {
   });
 
 // Google maps
-handler = Gmaps.build('Google');
-handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-  markers = handler.addMarkers([
-    {
-      "lat": 41.8899109,
-      "lng": -87.6376566,
-    }
-  ]);
-  handler.bounds.extendWith(markers);
-  handler.fitMapToBounds();
-});
+// handler = Gmaps.build('Google');
+// handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+//   markers = handler.addMarkers([
+//     {
+//       "lat": 41.8899109,
+//       "lng": -87.6376566,
+//     }
+//   ]);
+//   handler.bounds.extendWith(markers);
+//   handler.fitMapToBounds();
+// });
 
 
 
 function Countuptimer(){
 	totalSeconds = Math.floor($("#exact_seconds").data("seconds"));
-	// debugger;
 	secondsLabel = document.getElementById("seconds");
 	minutesLabel = document.getElementById("minutes");
 	hoursLabel = document.getElementById("hours");
@@ -67,3 +66,10 @@ Countuptimer.prototype.setTime = function(){
 	setInterval(noSmoking.setTime, 1000);
 });
 
+$(function(){
+  $(".button_to[data-remote=true]").on("ajax:complete", function(event, response){
+  	var newCount = $(this).parent().prev()
+  	// $(this).find("div input:first").disabled = true;
+  	newCount.replaceWith(response.responseText)
+  });
+});

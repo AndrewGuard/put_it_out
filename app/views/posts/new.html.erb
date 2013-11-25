@@ -1,5 +1,5 @@
 <!-- Form for creating posts -->
-<h1> Create a post homie! </h1>
+<h1> CREATE A NEW POST! </h1>
 
 <div class="container">
 
@@ -17,7 +17,7 @@
 
   <%= form_for(@post)  do |new_post| %>
   <%= new_post.text_field :title, :placeholder => "Post Title" %><br>
-  <%= new_post.text_area(:body, cols:20, rows: 20, :placeholder => "Post Body") %><br>
+  <%= new_post.text_area(:body, rows: 15, :placeholder => "Post Body") %><br>
   <%= new_post.submit %>
   <% end %>
 
