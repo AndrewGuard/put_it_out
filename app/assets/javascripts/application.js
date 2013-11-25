@@ -14,11 +14,27 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+//= require underscore
+//= require gmaps/google
 
 $(function() {
   $("a[data-remote=true]").on("ajax:success", function(event, data) {
     $("a[data-remote=true]").replaceWith(data);
   });
+
+// Google maps
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  markers = handler.addMarkers([
+    {
+      "lat": 41.8899109,
+      "lng": -87.6376566,
+    }
+  ]);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+});
+
 
 
 function Countuptimer(){
@@ -50,3 +66,4 @@ Countuptimer.prototype.setTime = function(){
 	var noSmoking = new Countuptimer()
 	setInterval(noSmoking.setTime, 1000);
 });
+
