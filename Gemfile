@@ -6,6 +6,8 @@ gem 'rails', '3.2.15'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
+gem 'gmaps4rails'
+gem 'underscore-rails'
 
 
 # Gems used only for assets and not required
