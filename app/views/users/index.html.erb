@@ -42,9 +42,9 @@
 	</div>
   
 
-  <%#= link_to "Edit", :user, :method => :edit, :remote => true%>
+  <% if session[:provider]!="facebook" %>
   <div class="edit_button"><%= link_to "Edit", edit_user_path(current_user.id),:remote => true %></div>
-
+  <% end %>
 
 </div>
 

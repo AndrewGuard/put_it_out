@@ -6,5 +6,5 @@ class Vote < ActiveRecord::Base
 
 
  validates_uniqueness_of :user_id, scope: [:votable_id, :votable_type]
- # validates_uniqueness_of :social_media_user_id, scope: [:votable_id, :votable_type]
+ validates_uniqueness_of :social_media_user_id, scope: [:votable_id, :votable_type]
 end

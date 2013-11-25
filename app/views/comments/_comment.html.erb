@@ -4,7 +4,7 @@
 	</ul>
 	<div class="vote_count" style="font-weight:bold;"> <%=comment.vote_count %> -people found this useful</div>
 	<% if current_user %>
-	  <div><%= button_to 'Was this comment helpful? +1', "/comments/#{comment.id}/upvote", :method => :post, :remote => true%>
-	  <%= button_to 'Did this comment just suck? -1', "/comments/#{comment.id}/downvote", :method => :post, :remote => true%></div>
+	  <div><%= button_to 'Was this comment helpful? +1', "/comments/#{comment.id}/upvote", :class => "btn btn-default", :method => :post, :remote => true%>
+	  <%= button_to 'Did this comment just suck? -1', "/comments/#{comment.id}/downvote", :class => "btn btn-default", :method => :post, :remote => true%></div>
     <% end %>
 </div>

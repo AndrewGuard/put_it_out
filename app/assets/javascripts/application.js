@@ -69,6 +69,7 @@ Countuptimer.prototype.setTime = function(){
 $(function(){
   $(".button_to[data-remote=true]").on("ajax:complete", function(event, response){
   	var newCount = $(this).parent().prev()
+  	// $(this).find("div input:first").disabled = true;
   	newCount.replaceWith(response.responseText)
   });
 });

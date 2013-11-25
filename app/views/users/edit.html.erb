@@ -11,11 +11,11 @@
     <strong><%= user.label :username %></strong>
     <%= user.text_field :username  %>
   </div>
-  <div id="profile_info">
+   <% if session[:provider]!="facebook" %>
+     <div id="profile_info">
     <%= user.label :password %>
     <%= user.text_field :password  %>
   </div id="profile_info">
-   <% if session[:provider]!="facebook" %>
     <div>
       <%= user.label :photo %>
     <%= user.file_field :photo  %> <br>
