@@ -79,11 +79,18 @@ class PostsController < ApplicationController
 
   def downvote
     post = Post.find(params[:id])
-    if current_user.class.inspect == "SocialMediaUser"
-      post.votes.create(value: -1, social_media_user_id: current_user.id)
+    if current_user.class.inspect =="SocialMediaUser"
+      post.votes.create(value:-1, social_media_user_id: current_user.id)
     else
-      post.votes.create(value: -1, user_id: current_user.id)
+      post.votes.create(value:-1, user_id: current_user.id)
     end
-    redirect_to post_path
+    respond_to do |format|
+      format.js do
+        render partial: 'vote_count', layout: false, locals: {:vote_count => post.vote_count}
+      end
+      format.any do
+        redirect_to post_path
+      end
+    end
   end
 end

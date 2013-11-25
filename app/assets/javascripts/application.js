@@ -23,23 +23,22 @@ $(function() {
   });
 
 // Google maps
-handler = Gmaps.build('Google');
-handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-  markers = handler.addMarkers([
-    {
-      "lat": 41.8899109,
-      "lng": -87.6376566,
-    }
-  ]);
-  handler.bounds.extendWith(markers);
-  handler.fitMapToBounds();
-});
+// handler = Gmaps.build('Google');
+// handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+//   markers = handler.addMarkers([
+//     {
+//       "lat": 41.8899109,
+//       "lng": -87.6376566,
+//     }
+//   ]);
+//   handler.bounds.extendWith(markers);
+//   handler.fitMapToBounds();
+// });
 
 
 
 function Countuptimer(){
 	totalSeconds = Math.floor($("#exact_seconds").data("seconds"));
-	// debugger;
 	secondsLabel = document.getElementById("seconds");
 	minutesLabel = document.getElementById("minutes");
 	hoursLabel = document.getElementById("hours");
@@ -69,9 +68,7 @@ Countuptimer.prototype.setTime = function(){
 
 $(function(){
   $(".button_to[data-remote=true]").on("ajax:complete", function(event, response){
-  	console.log(response)
-  	var newCount = $(this).closest(".vote_count")
-  	console.log(newCount)
-  	newCount.replaceWith(response.vote_count)
+  	var newCount = $(this).parent().prev()
+  	newCount.replaceWith(response.responseText)
   });
 });
