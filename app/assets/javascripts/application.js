@@ -52,8 +52,10 @@ Countuptimer.prototype.setTime = function(){
 });
 
 $(function(){
-  $("button_to[data-remote=true]").on("ajax:sucess", function(response){
-  	var newCount = $('button_to').closest(".vote_count")
-  	new_Count.replaceWith(response.vote_count)
-  }, "json");
+  $(".button_to[data-remote=true]").on("ajax:complete", function(event, response){
+  	console.log(response)
+  	var newCount = $(this).closest(".vote_count")
+  	console.log(newCount)
+  	newCount.replaceWith(response.vote_count)
+  });
 });

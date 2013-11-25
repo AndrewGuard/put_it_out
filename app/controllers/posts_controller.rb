@@ -68,12 +68,11 @@ class PostsController < ApplicationController
       post.votes.create(value:1, user_id: current_user.id)
     end
     respond_to do |format|
-      formatd.js do
-        {}.to_json
-        render nothing: true
+      format.js do
+        render partial: 'vote_count', layout: false, locals: {:vote_count => post.vote_count}
       end
       format.any do
-    redirect_to post_path
+        redirect_to post_path
       end
     end
   end
