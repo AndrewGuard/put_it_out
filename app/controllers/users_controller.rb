@@ -2,6 +2,10 @@ class UsersController < ApplicationController
 	include ApplicationHelper
 	include TimerHelper
 
+		# before_filter :authenticate
+		caches_page :show
+		caches_action :edit
+
 	def index
 		if session[:provider] == "facebook"
 			@user = SocialMediaUser.find_by_auth_token(cookies[:auth_token])

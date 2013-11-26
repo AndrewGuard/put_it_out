@@ -1,3 +1,4 @@
+<% cache do %>
 <%= form_for([@post, @post.comments.build]) do |f| %>
 
 <div class="field">
@@ -6,4 +7,5 @@
 <div class="actions">
   <%= f.submit %>
 </div>
+<% end %>
 <% end %>

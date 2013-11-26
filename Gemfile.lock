@@ -56,6 +56,7 @@ GEM
       simplecov (>= 0.7)
       term-ansicolor
       thor
+    dalli (2.6.4)
     debugger (1.6.2)
       columnize (>= 0.3.1)
       debugger-linecache (~> 1.2.0)
@@ -90,6 +91,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    memcache-client (1.8.5)
     mime-types (1.25)
     mini_magick (3.6.0)
       subexec (~> 0.2.1)
@@ -209,11 +211,13 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 3.2.1)
   coveralls
+  dalli
   debugger
   factory_girl_rails (~> 4.0)
   gmaps4rails
   jquery-rails
   launchy
+  memcache-client
   mini_magick
   nyan-cat-formatter
   omniauth

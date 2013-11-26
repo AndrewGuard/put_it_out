@@ -1,9 +1,14 @@
 class PostsController < ApplicationController
   include ApplicationHelper
 
+
   def index
     # show all posts
+
     @posts = Post.all
+  Rails.cache.fetch("#{@post}:#{@post.object_id}") do
+  @post
+    end 
   end
 
   def show

@@ -1,6 +1,10 @@
 class CommentsController < ApplicationController
   include ApplicationHelper
+  # before_filter :authenticate
+
+  caches_action :show
   
+
   def new
     @comment = Comment.new
   end
@@ -9,6 +13,7 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.create(text: params[:comment][:text])
     @comment.update_attribute(:post_id, params[:post_id])
     if @comment.valid?
+      expire_fragment("comment")
         redirect_to :back
     else
         flash[:error] = "Your comment is uncool"

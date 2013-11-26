@@ -35,6 +35,11 @@ PutItOut::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
+  #using memory chache
+  config.action_controller.perform_caching = true
+  config.cache_store = :mem_cache_store
+
+
   #sending emails to users
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {

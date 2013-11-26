@@ -1,10 +1,13 @@
  <div class="container">
  	<h2>Most Recent Posts By Users </h2>
  	<% @posts.each do |post| %>
- 		<h3><a href="/posts/<%= post.id %>"><%= post.title.upcase %></a></h3>
- 		<p><%= truncate(post.body, length: 300)%></p>
- 		<em>Created at - <%=post.created_at  %> </em>
+ 		<% cache(post) do %>
+	 		<h3><a href="/posts/<%= post.id %>"><%= post.title.upcase %></a></h3>
+	 		<p><%= truncate(post.body, length: 300)%></p>
+	 		<em>Created at - <%=post.created_at  %> </em>
+ 		<% end %>
  	<% end %>
+
  </div>
 
 
