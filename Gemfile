@@ -8,6 +8,7 @@ gem 'rails', '3.2.15'
 gem 'pg'
 gem 'gmaps4rails'
 gem 'underscore-rails'
+gem 'memcache-client'
 
 
 # Gems used only for assets and not required
