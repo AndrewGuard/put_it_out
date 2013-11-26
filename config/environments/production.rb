@@ -76,6 +76,7 @@ PutItOut::Application.configure do
   enable_starttls_auto: true  }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-
+  
+  config.cache_store = Memcached::Rails.new(:servers => ['127.0.0.1'])
   
 end

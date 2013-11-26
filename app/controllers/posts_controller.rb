@@ -3,7 +3,8 @@ class PostsController < ApplicationController
 
   def index
     # show all posts
-    @posts = Post.all
+   @posts = Post.get_posts
+    # @posts = Post.all
   end
 
   def show

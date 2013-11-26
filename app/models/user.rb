@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
 	validates_presence_of :password, :on => :create
 	validates :password, length: { in: 6..20, message: "- must be between 6 and 20 characters" }, on: :create
 	has_secure_password
+	
 
 	
 	def send_password_reset
@@ -36,8 +37,6 @@ class User < ActiveRecord::Base
 		begin
 			self[column] = SecureRandom.urlsafe_base64
 		end while User.exists?(column => self[column])
-	end
-
-
-
+	end 
+	
 end

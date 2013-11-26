@@ -9,8 +9,22 @@ class Post < ActiveRecord::Base
    has_many :comments
    has_many :votes, as: :votable
 
+   after_save :reset_cache
+
    def vote_count
    	vote_array = self.votes.map {|vote| vote.value}
    	vote_score = vote_array.inject(0,:+)
+   end
+
+   def self.get_posts
+     Rails.cache.fetch("Posts", :expires_in => 20.seconds) do
+     Post.find(:all)
+     end
+   end
+
+   private
+
+   def reset_cache
+      Rails.cache.clear
    end
 end

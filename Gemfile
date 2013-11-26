@@ -24,6 +24,8 @@ end
 
 gem 'jquery-rails'
 gem 'launchy'
+gem 'memcached'
+gem 'dalli'
 
 
 

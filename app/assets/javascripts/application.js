@@ -15,7 +15,7 @@
 //= require twitter/bootstrap
 //= require_tree .
 //= require underscore
-//= require gmaps/google
+
 
 $(function() {
   $("a[data-remote=true]").on("ajax:success", function(event, data) {
