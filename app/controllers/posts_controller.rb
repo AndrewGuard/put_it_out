@@ -3,7 +3,13 @@ class PostsController < ApplicationController
 
   def index
     # show all posts
-    @posts = Post.all
+    @posts = Post.all_cached
+
+     respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @posts }
+     end
+
   end
 
   def show

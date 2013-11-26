@@ -13,4 +13,15 @@ class Post < ActiveRecord::Base
    	vote_array = self.votes.map {|vote| vote.value}
    	vote_score = vote_array.inject(0,:+)
    end
+
+   def self.all_cached
+      Rails.cache.fetch('Post.all') { all }
+   end
+
+   after_save    :expire_contact_all_cache
+   after_destroy :expire_contact_all_cache
+
+   def expire_contact_all_cache
+     Rails.cache.delete('Post.all')
+   end
 end
